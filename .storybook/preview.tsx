@@ -1,4 +1,9 @@
 import type { Preview } from '@storybook/react-vite'
+import { startLivePreviewReceiver } from '@bezel-labs/crystal'
+import '../src/bezel/variables.css'
+
+// Receives live token CSS from Bezel (relayed by .storybook/manager.ts).
+startLivePreviewReceiver({ allowedOrigins: ['https://app.bezel.new'] })
 
 // Group props into collapsible sections in every docs table, like react-aria.adobe.com.
 // First matching rule wins. Props that match nothing (isPending, isDisabled, children…)

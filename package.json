@@ -4,19 +4,19 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
+    "dev": "npm run tokens && storybook dev -p 6006",
+    "build": "npm run tokens && storybook build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "tokens": "bezel build"
   },
   "dependencies": {
+    "@bezel-labs/crystal": "^1.0.0",
     "react": "^19.2.8",
     "react-aria-components": "^1.22.1",
     "react-dom": "^19.2.8"
   },
   "devDependencies": {
+    "@bezel-labs/bezel-kit": "^0.7.1",
     "@chromatic-com/storybook": "latest",
     "@eslint/js": "^10.0.1",
     "@storybook/addon-a11y": "^10.6.1",

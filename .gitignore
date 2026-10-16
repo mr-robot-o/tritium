@@ -25,3 +25,9 @@ dist-ssr
 
 *storybook.log
 storybook-static
+
+# bezel:start (generated — do not edit)
+/src/bezel/variables.css
+/src/bezel/contexts.ts
+/src/bezel/fonts.ts
+# bezel:end
