@@ -3,7 +3,9 @@ import { startLivePreviewReceiver } from '@bezel-labs/crystal'
 import '../src/bezel/variables.css'
 
 // Receives live token CSS from Bezel (relayed by .storybook/manager.ts).
-startLivePreviewReceiver({ allowedOrigins: ['https://app.bezel.new'] })
+// The manager re-posts each message to this iframe, so the message arrives with the
+// manager's origin (this same origin), not Bezel's. Allow both.
+startLivePreviewReceiver({ allowedOrigins: ['https://app.bezel.new', window.location.origin] })
 
 // Group props into collapsible sections in every docs table, like react-aria.adobe.com.
 // First matching rule wins. Props that match nothing (isPending, isDisabled, children…)
