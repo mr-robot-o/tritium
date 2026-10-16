@@ -425,6 +425,452 @@
         },
         "$type": "color"
       },
+      "bright-indigo": {
+        "50": {
+          "$extensions": {
+            "com.bezel.app": {
+              "exportName": [
+                "bright-indigo-50"
+              ]
+            }
+          },
+          "$root": {
+            "$value": {
+              "alpha": 1,
+              "colorSpace": "oklch",
+              "components": [
+                0.9670283261079732,
+                0.0132687095100318,
+                286.2390165615574
+              ],
+              "hex": "#f3f3fd"
+            }
+          },
+          "$type": "color"
+        },
+        "100": {
+          "$extensions": {
+            "com.bezel.app": {
+              "exportName": [
+                "bright-indigo-100"
+              ]
+            }
+          },
+          "$root": {
+            "$value": {
+              "alpha": 1,
+              "colorSpace": "oklch",
+              "components": [
+                0.9334796079327206,
+                0.028291512580403952,
+                283.698855026221
+              ],
+              "hex": "#e6e7fc"
+            }
+          },
+          "$type": "color"
+        },
+        "200": {
+          "$extensions": {
+            "com.bezel.app": {
+              "exportName": [
+                "bright-indigo-200"
+              ]
+            }
+          },
+          "$root": {
+            "$value": {
+              "alpha": 1,
+              "colorSpace": "oklch",
+              "components": [
+                0.857314953048809,
+                0.061025245455803505,
+                281.97321915700616
+              ],
+              "hex": "#c9ccf8"
+            }
+          },
+          "$type": "color"
+        },
+        "300": {
+          "$extensions": {
+            "com.bezel.app": {
+              "exportName": [
+                "bright-indigo-300"
+              ]
+            }
+          },
+          "$root": {
+            "$value": {
+              "alpha": 1,
+              "colorSpace": "oklch",
+              "components": [
+                0.7693615373389467,
+                0.10156283939468992,
+                279.99993840930574
+              ],
+              "hex": "#a7adf4"
+            }
+          },
+          "$type": "color"
+        },
+        "400": {
+          "$extensions": {
+            "com.bezel.app": {
+              "exportName": [
+                "bright-indigo-400"
+              ]
+            }
+          },
+          "$root": {
+            "$value": {
+              "alpha": 1,
+              "colorSpace": "oklch",
+              "components": [
+                0.6656242252553745,
+                0.15476310218602493,
+                276.8229805238436
+              ],
+              "hex": "#7d88f1"
+            }
+          },
+          "$type": "color"
+        },
+        "500": {
+          "$extensions": {
+            "com.bezel.app": {
+              "exportName": [
+                "bright-indigo-500"
+              ]
+            }
+          },
+          "$root": {
+            "$value": {
+              "alpha": 1,
+              "colorSpace": "oklch",
+              "components": [
+                0.5247542672025061,
+                0.23207792539629488,
+                269.356679014444
+              ],
+              "hex": "#3a52ed"
+            }
+          },
+          "$type": "color"
+        },
+        "600": {
+          "$extensions": {
+            "com.bezel.app": {
+              "exportName": [
+                "bright-indigo-600"
+              ]
+            }
+          },
+          "$root": {
+            "$value": {
+              "alpha": 1,
+              "colorSpace": "oklch",
+              "components": [
+                0.4840123908480723,
+                0.21246779047474063,
+                269.56481643727716
+              ],
+              "hex": "#3449d4"
+            }
+          },
+          "$type": "color"
+        },
+        "700": {
+          "$extensions": {
+            "com.bezel.app": {
+              "exportName": [
+                "bright-indigo-700"
+              ]
+            }
+          },
+          "$root": {
+            "$value": {
+              "alpha": 1,
+              "colorSpace": "oklch",
+              "components": [
+                0.439115875012423,
+                0.18877160376405624,
+                269.58724169836773
+              ],
+              "hex": "#2d40b8"
+            }
+          },
+          "$type": "color"
+        },
+        "800": {
+          "$extensions": {
+            "com.bezel.app": {
+              "exportName": [
+                "bright-indigo-800"
+              ]
+            }
+          },
+          "$root": {
+            "$value": {
+              "alpha": 1,
+              "colorSpace": "oklch",
+              "components": [
+                0.3813671056498962,
+                0.1600773399727379,
+                270.03390610331485
+              ],
+              "hex": "#253496"
+            }
+          },
+          "$type": "color"
+        },
+        "900": {
+          "$extensions": {
+            "com.bezel.app": {
+              "exportName": [
+                "bright-indigo-900"
+              ]
+            }
+          },
+          "$root": {
+            "$value": {
+              "alpha": 1,
+              "colorSpace": "oklch",
+              "components": [
+                0.3040332458276113,
+                0.12030664662171464,
+                270.4779964106268
+              ],
+              "hex": "#1a256a"
+            }
+          },
+          "$type": "color"
+        },
+        "$type": "color"
+      },
+      "bright-purple": {
+        "50": {
+          "$extensions": {
+            "com.bezel.app": {
+              "exportName": [
+                "bright-purple-50"
+              ]
+            }
+          },
+          "$root": {
+            "$value": {
+              "alpha": 1,
+              "colorSpace": "oklch",
+              "components": [
+                0.9731963377412796,
+                0.015641610521326885,
+                319.58149182479985
+              ],
+              "hex": "#fbf3fd"
+            }
+          },
+          "$type": "color"
+        },
+        "100": {
+          "$extensions": {
+            "com.bezel.app": {
+              "exportName": [
+                "bright-purple-100"
+              ]
+            }
+          },
+          "$root": {
+            "$value": {
+              "alpha": 1,
+              "colorSpace": "oklch",
+              "components": [
+                0.9449058854706327,
+                0.03433050765786442,
+                318.56833727033626
+              ],
+              "hex": "#f7e6fc"
+            }
+          },
+          "$type": "color"
+        },
+        "200": {
+          "$extensions": {
+            "com.bezel.app": {
+              "exportName": [
+                "bright-purple-200"
+              ]
+            }
+          },
+          "$root": {
+            "$value": {
+              "alpha": 1,
+              "colorSpace": "oklch",
+              "components": [
+                0.8828925032903059,
+                0.07531576573989118,
+                319.80032773589124
+              ],
+              "hex": "#efc9f8"
+            }
+          },
+          "$type": "color"
+        },
+        "300": {
+          "$extensions": {
+            "com.bezel.app": {
+              "exportName": [
+                "bright-purple-300"
+              ]
+            }
+          },
+          "$root": {
+            "$value": {
+              "alpha": 1,
+              "colorSpace": "oklch",
+              "components": [
+                0.8141962982751689,
+                0.12550586063192645,
+                320.6679020270084
+              ],
+              "hex": "#e7a7f4"
+            }
+          },
+          "$type": "color"
+        },
+        "400": {
+          "$extensions": {
+            "com.bezel.app": {
+              "exportName": [
+                "bright-purple-400"
+              ]
+            }
+          },
+          "$root": {
+            "$value": {
+              "alpha": 1,
+              "colorSpace": "oklch",
+              "components": [
+                0.7377174194990799,
+                0.18790436036004418,
+                320.8862451353203
+              ],
+              "hex": "#de7df1"
+            }
+          },
+          "$type": "color"
+        },
+        "500": {
+          "$extensions": {
+            "com.bezel.app": {
+              "exportName": [
+                "bright-purple-500"
+              ]
+            }
+          },
+          "$root": {
+            "$value": {
+              "alpha": 1,
+              "colorSpace": "oklch",
+              "components": [
+                0.6505425772469222,
+                0.26787991617338414,
+                321.86322964742544
+              ],
+              "hex": "#d53aed"
+            }
+          },
+          "$type": "color"
+        },
+        "600": {
+          "$extensions": {
+            "com.bezel.app": {
+              "exportName": [
+                "bright-purple-600"
+              ]
+            }
+          },
+          "$root": {
+            "$value": {
+              "alpha": 1,
+              "colorSpace": "oklch",
+              "components": [
+                0.5999168607782236,
+                0.24544159627907355,
+                322.01615320911264
+              ],
+              "hex": "#bf34d4"
+            }
+          },
+          "$type": "color"
+        },
+        "700": {
+          "$extensions": {
+            "com.bezel.app": {
+              "exportName": [
+                "bright-purple-700"
+              ]
+            }
+          },
+          "$root": {
+            "$value": {
+              "alpha": 1,
+              "colorSpace": "oklch",
+              "components": [
+                0.5397518194060088,
+                0.21937807390473182,
+                321.7674917995696
+              ],
+              "hex": "#a52db8"
+            }
+          },
+          "$type": "color"
+        },
+        "800": {
+          "$extensions": {
+            "com.bezel.app": {
+              "exportName": [
+                "bright-purple-800"
+              ]
+            }
+          },
+          "$root": {
+            "$value": {
+              "alpha": 1,
+              "colorSpace": "oklch",
+              "components": [
+                0.46716563989246657,
+                0.1867177811924154,
+                321.99245785770495
+              ],
+              "hex": "#872596"
+            }
+          },
+          "$type": "color"
+        },
+        "900": {
+          "$extensions": {
+            "com.bezel.app": {
+              "exportName": [
+                "bright-purple-900"
+              ]
+            }
+          },
+          "$root": {
+            "$value": {
+              "alpha": 1,
+              "colorSpace": "oklch",
+              "components": [
+                0.36645131058218855,
+                0.14216983260766908,
+                321.81717564581174
+              ],
+              "hex": "#5f1a6a"
+            }
+          },
+          "$type": "color"
+        },
+        "$type": "color"
+      },
       "crimson": {
         "50": {
           "$extensions": {
@@ -4480,7 +4926,7 @@
             }
           },
           "$root": {
-            "$value": "{base.color.magenta.700}"
+            "$value": "{base.color.magenta.800}"
           },
           "$type": "color"
         },
@@ -4493,7 +4939,7 @@
             }
           },
           "$root": {
-            "$value": "{base.color.magenta.500}"
+            "$value": "{base.color.magenta.600}"
           },
           "$type": "color"
         },
@@ -4506,7 +4952,7 @@
             }
           },
           "$root": {
-            "$value": "{base.color.neutral.foreground}"
+            "$value": "{base.color.neutral.background}"
           },
           "$type": "color"
         },
@@ -4519,7 +4965,7 @@
             }
           },
           "$root": {
-            "$value": "{base.color.magenta.400}"
+            "$value": "{base.color.magenta.500}"
           },
           "$type": "color"
         }
@@ -4535,7 +4981,7 @@
             }
           },
           "$root": {
-            "$value": "{base.color.digital-blue.700}"
+            "$value": "{base.color.digital-blue.800}"
           },
           "$type": "color"
         },
@@ -4548,7 +4994,7 @@
             }
           },
           "$root": {
-            "$value": "{base.color.digital-blue.500}"
+            "$value": "{base.color.digital-blue.600}"
           },
           "$type": "color"
         },
@@ -4561,7 +5007,7 @@
             }
           },
           "$root": {
-            "$value": "{base.color.neutral.foreground}"
+            "$value": "{base.color.neutral.background}"
           },
           "$type": "color"
         },
@@ -4574,7 +5020,7 @@
             }
           },
           "$root": {
-            "$value": "{base.color.digital-blue.400}"
+            "$value": "{base.color.digital-blue.500}"
           },
           "$type": "color"
         }
@@ -4645,7 +5091,7 @@
             }
           },
           "$root": {
-            "$value": "{base.color.lime-green.800}"
+            "$value": "{base.color.bright-purple.800}"
           },
           "$type": "color"
         },
@@ -4658,7 +5104,7 @@
             }
           },
           "$root": {
-            "$value": "{base.color.lime-green.600}"
+            "$value": "{base.color.bright-purple.600}"
           },
           "$type": "color"
         },
@@ -4671,7 +5117,7 @@
             }
           },
           "$root": {
-            "$value": "{base.color.neutral.foreground}"
+            "$value": "{base.color.neutral.background}"
           },
           "$type": "color"
         },
@@ -4684,7 +5130,7 @@
             }
           },
           "$root": {
-            "$value": "{base.color.lime-green.500}"
+            "$value": "{base.color.bright-purple.500}"
           },
           "$type": "color"
         }
@@ -4700,7 +5146,7 @@
             }
           },
           "$root": {
-            "$value": "{base.color.emerald-green.700}"
+            "$value": "{base.color.emerald-green.600}"
           },
           "$type": "color"
         },
@@ -4713,7 +5159,7 @@
             }
           },
           "$root": {
-            "$value": "{base.color.emerald-green.500}"
+            "$value": "{base.color.emerald-green.800}"
           },
           "$type": "color"
         },
@@ -4726,7 +5172,7 @@
             }
           },
           "$root": {
-            "$value": "{base.color.neutral.foreground}"
+            "$value": "{base.color.neutral.background}"
           },
           "$type": "color"
         },
@@ -4739,7 +5185,7 @@
             }
           },
           "$root": {
-            "$value": "{base.color.emerald-green.400}"
+            "$value": "{base.color.emerald-green.700}"
           },
           "$type": "color"
         }
@@ -4755,7 +5201,7 @@
             }
           },
           "$root": {
-            "$value": "{base.color.lime-green.700}"
+            "$value": "{base.color.bright-indigo.700}"
           },
           "$type": "color"
         },
@@ -4768,7 +5214,7 @@
             }
           },
           "$root": {
-            "$value": "{base.color.lime-green.500}"
+            "$value": "{base.color.bright-indigo.500}"
           },
           "$type": "color"
         },
@@ -4781,7 +5227,7 @@
             }
           },
           "$root": {
-            "$value": "{base.color.neutral.foreground}"
+            "$value": "{base.color.neutral.background}"
           },
           "$type": "color"
         },
@@ -4794,7 +5240,7 @@
             }
           },
           "$root": {
-            "$value": "{base.color.lime-green.400}"
+            "$value": "{base.color.bright-indigo.400}"
           },
           "$type": "color"
         }
@@ -4810,7 +5256,7 @@
             }
           },
           "$root": {
-            "$value": "{base.color.soft-red.700}"
+            "$value": "{base.color.soft-red.900}"
           },
           "$type": "color"
         },
@@ -4823,7 +5269,7 @@
             }
           },
           "$root": {
-            "$value": "{base.color.soft-red.500}"
+            "$value": "{base.color.soft-red.700}"
           },
           "$type": "color"
         },
@@ -4836,7 +5282,7 @@
             }
           },
           "$root": {
-            "$value": "{base.color.neutral.foreground}"
+            "$value": "{base.color.neutral.background}"
           },
           "$type": "color"
         },
@@ -4849,7 +5295,7 @@
             }
           },
           "$root": {
-            "$value": "{base.color.soft-red.400}"
+            "$value": "{base.color.soft-red.600}"
           },
           "$type": "color"
         }

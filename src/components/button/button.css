@@ -1,3 +1,145 @@
-.button {
-  background: var(--primary);
+.tritium-button {
+  --tritium-button-height: var(--size-10);
+  --tritium-button-padding-x: var(--size-4);
+
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--size-2);
+  min-height: var(--tritium-button-height);
+  padding: var(--size-0) var(--tritium-button-padding-x);
+  border: var(--border-0) solid;
+  border-radius: var(--radius-md);
+  outline: none;
+  background: var(--tritium-button-bg);
+  color: var(--tritium-button-fg);
+  font-family: var(--typography-xl-font-family);
+  font-size: var(--typography-xl-font-size);
+  font-weight: var(--typography-xl-font-weight);
+  line-height: var(--typography-xl-line-height);
+  letter-spacing: var(--typography-xl-letter-spacing);
+  cursor: pointer;
+}
+
+/* Variants */
+
+.tritium-button--primary {
+  --tritium-button-bg: var(--primary);
+  --tritium-button-bg-hover: var(--primary-hover);
+  --tritium-button-bg-active: var(--primary-active);
+  --tritium-button-fg: var(--primary-foreground);
+}
+
+.tritium-button--secondary {
+  --tritium-button-bg: var(--secondary);
+  --tritium-button-bg-hover: var(--secondary-hover);
+  --tritium-button-bg-active: var(--secondary-active);
+  --tritium-button-fg: var(--secondary-foreground);
+}
+
+.tritium-button--tertiary {
+  --tritium-button-bg: var(--tertiary);
+  --tritium-button-bg-hover: var(--tertiary-hover);
+  --tritium-button-bg-active: var(--tertiary-active);
+  --tritium-button-fg: var(--tertiary-foreground);
+}
+
+.tritium-button--destructive {
+  --tritium-button-bg: var(--destructive);
+  --tritium-button-bg-hover: var(--destructive-hover);
+  --tritium-button-bg-active: var(--destructive-active);
+  --tritium-button-fg: var(--destructive-foreground);
+}
+
+.tritium-button--outline {
+  --tritium-button-bg: var(--background);
+  --tritium-button-bg-hover: var(--accent);
+  --tritium-button-bg-active: var(--neutral-800);
+  --tritium-button-fg: var(--foreground);
+
+  border-width: var(--border-default);
+  border-color: var(--border);
+}
+
+.tritium-button--ghost {
+  --tritium-button-bg: transparent;
+  --tritium-button-bg-hover: var(--accent);
+  --tritium-button-bg-active: var(--neutral-800);
+  --tritium-button-fg: var(--foreground);
+}
+
+.tritium-button--link {
+  --tritium-button-bg: transparent;
+  --tritium-button-bg-hover: transparent;
+  --tritium-button-bg-active: transparent;
+  --tritium-button-fg: var(--primary);
+
+  text-underline-offset: var(--size-1);
+}
+
+/* Sizes (default is set on .tritium-button) */
+
+.tritium-button--size-xs,
+.tritium-button--size-icon-xs {
+  --tritium-button-height: var(--size-6);
+  --tritium-button-padding-x: var(--size-2);
+}
+
+.tritium-button--size-sm,
+.tritium-button--size-icon-sm {
+  --tritium-button-height: var(--size-8);
+  --tritium-button-padding-x: var(--size-3);
+}
+
+.tritium-button--size-lg,
+.tritium-button--size-icon-lg {
+  --tritium-button-height: var(--size-12);
+  --tritium-button-padding-x: var(--size-6);
+}
+
+.tritium-button--size-xs,
+.tritium-button--size-sm,
+.tritium-button--size-icon-xs,
+.tritium-button--size-icon-sm {
+  font-size: var(--typography-lg-font-size);
+  font-weight: var(--typography-lg-font-weight);
+  line-height: var(--typography-lg-line-height);
+  letter-spacing: var(--typography-lg-letter-spacing);
+}
+
+.tritium-button--size-icon-xs,
+.tritium-button--size-icon-sm,
+.tritium-button--size-icon,
+.tritium-button--size-icon-lg {
+  --tritium-button-padding-x: var(--size-0);
+
+  min-width: var(--tritium-button-height);
+}
+
+/* States */
+
+.tritium-button[data-hovered]:not([data-disabled], [data-pending]) {
+  background: var(--tritium-button-bg-hover);
+}
+
+.tritium-button[data-pressed]:not([data-disabled], [data-pending]) {
+  background: var(--tritium-button-bg-active);
+}
+
+.tritium-button--link[data-hovered]:not([data-disabled], [data-pending]) {
+  text-decoration: underline;
+}
+
+.tritium-button[data-focus-visible] {
+  outline: var(--border-2) solid var(--ring);
+  outline-offset: var(--size-0-5);
+}
+
+.tritium-button[data-disabled] {
+  cursor: not-allowed;
+}
+
+.tritium-button[data-pending] {
+  cursor: progress;
 }
