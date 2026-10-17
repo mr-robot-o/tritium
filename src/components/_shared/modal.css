@@ -1,0 +1,152 @@
+@import './overlay.css';
+
+.tritium-overlay {
+  --tritium-overlay-bg: oklch(0 0 0 / 0.5);
+  --tritium-overlay-z: 100;
+  --tritium-overlay-duration: 0.2s;
+
+  position: fixed;
+  inset: 0;
+  z-index: var(--tritium-overlay-z);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--tritium-overlay-bg);
+}
+
+.tritium-modal {
+  --tritium-modal-width: calc(var(--size-96) + var(--size-16));
+  --tritium-modal-shadow: 0 var(--size-2) var(--size-6) oklch(0 0 0 / 0.2);
+
+  box-sizing: border-box;
+  max-width: 100%;
+  outline: none;
+  background: var(--popover);
+  box-shadow: var(--tritium-modal-shadow);
+  color: var(--popover-foreground);
+  font-family: var(--typography-xl-font-family);
+  font-size: var(--typography-xl-font-size);
+  line-height: var(--typography-xl-line-height);
+  letter-spacing: var(--typography-xl-letter-spacing);
+}
+
+.tritium-modal--size-sm {
+  --tritium-modal-width: var(--size-80);
+}
+
+.tritium-modal--size-lg {
+  --tritium-modal-width: calc(var(--size-96) * 1.5);
+}
+
+/* Centered dialog */
+
+.tritium-modal--center {
+  width: min(var(--tritium-modal-width), calc(100vw - var(--size-8)));
+  max-height: calc(100% - var(--size-8));
+  overflow: auto;
+  border: var(--border-default) solid var(--border);
+  border-radius: var(--radius-xl);
+}
+
+/* Sheets: a panel against one edge that slides in. */
+
+.tritium-modal--left,
+.tritium-modal--right,
+.tritium-modal--top,
+.tritium-modal--bottom {
+  position: fixed;
+  overflow: auto;
+}
+
+.tritium-modal--left,
+.tritium-modal--right {
+  top: 0;
+  bottom: 0;
+  width: min(var(--tritium-modal-width), calc(100vw - var(--size-12)));
+}
+
+.tritium-modal--top,
+.tritium-modal--bottom {
+  left: 0;
+  right: 0;
+  max-height: 80%;
+}
+
+.tritium-modal--left {
+  --tritium-slide-from: translateX(-100%);
+
+  left: 0;
+  border-inline-end: var(--border-default) solid var(--border);
+}
+
+.tritium-modal--right {
+  --tritium-slide-from: translateX(100%);
+
+  right: 0;
+  border-inline-start: var(--border-default) solid var(--border);
+}
+
+.tritium-modal--top {
+  --tritium-slide-from: translateY(-100%);
+
+  top: 0;
+  border-block-end: var(--border-default) solid var(--border);
+}
+
+.tritium-modal--bottom {
+  --tritium-slide-from: translateY(100%);
+
+  bottom: 0;
+  border-block-start: var(--border-default) solid var(--border);
+}
+
+/* Animation */
+
+.tritium-overlay[data-entering] {
+  animation: tritium-fade-in var(--tritium-overlay-duration) ease-out;
+}
+
+.tritium-overlay[data-exiting] {
+  animation: tritium-fade-out var(--tritium-overlay-duration) ease-in forwards;
+}
+
+.tritium-modal--center[data-entering] {
+  animation: tritium-zoom-in var(--tritium-overlay-duration) ease-out;
+}
+
+.tritium-modal--center[data-exiting] {
+  animation: tritium-zoom-out var(--tritium-overlay-duration) ease-in forwards;
+}
+
+.tritium-modal--left[data-entering],
+.tritium-modal--right[data-entering],
+.tritium-modal--top[data-entering],
+.tritium-modal--bottom[data-entering] {
+  animation: tritium-slide-in var(--tritium-overlay-duration) ease-out;
+}
+
+.tritium-modal--left[data-exiting],
+.tritium-modal--right[data-exiting],
+.tritium-modal--top[data-exiting],
+.tritium-modal--bottom[data-exiting] {
+  animation: tritium-slide-out var(--tritium-overlay-duration) ease-in forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tritium-overlay[data-entering],
+  .tritium-overlay[data-exiting],
+  .tritium-modal[data-entering],
+  .tritium-modal[data-exiting] {
+    animation: none;
+  }
+}
+
+/* The content inside the panel */
+
+.tritium-dialog {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-4);
+  padding: var(--size-6);
+  outline: none;
+}

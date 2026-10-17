@@ -4,6 +4,9 @@ export type { AccordionItemProps, AccordionProps } from './components/accordion/
 export { Alert, AlertDescription, AlertTitle } from './components/alert/alert';
 export type { AlertProps, AlertVariant } from './components/alert/alert';
 
+export { AlertDialog } from './components/alert-dialog/alert-dialog';
+export type { AlertDialogProps } from './components/alert-dialog/alert-dialog';
+
 export { AspectRatio } from './components/aspect-ratio/aspect-ratio';
 export type { AspectRatioProps } from './components/aspect-ratio/aspect-ratio';
 
@@ -34,6 +37,18 @@ export type { CollapsiblePanelProps, CollapsibleProps } from './components/colla
 export { Combobox, ComboboxItem } from './components/combobox/combobox';
 export type { ComboboxItemProps, ComboboxProps } from './components/combobox/combobox';
 
+export { ContextMenu } from './components/context-menu/context-menu';
+export type { ContextMenuProps } from './components/context-menu/context-menu';
+
+export { Dialog, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from './components/dialog/dialog';
+export type { DialogProps, DialogSize } from './components/dialog/dialog';
+
+export { Drawer } from './components/drawer/drawer';
+export type { DrawerProps } from './components/drawer/drawer';
+
+export { DropdownMenu, DropdownMenuContent } from './components/dropdown-menu/dropdown-menu';
+export type { DropdownMenuContentProps } from './components/dropdown-menu/dropdown-menu';
+
 export { Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle } from './components/empty/empty';
 export type { EmptyMediaProps } from './components/empty/empty';
 
@@ -42,6 +57,9 @@ export type { FieldProps } from './components/field/field';
 
 export { Form } from './components/form/form';
 export type { FormProps } from './components/form/form';
+
+export { HoverCard, HoverCardContent } from './components/hover-card/hover-card';
+export type { HoverCardContentProps } from './components/hover-card/hover-card';
 
 export { Input } from './components/input/input';
 export type { InputProps, InputSize } from './components/input/input';
@@ -61,6 +79,9 @@ export type { LabelProps } from './components/label/label';
 export { Link } from './components/link/link';
 export type { LinkProps, LinkVariant } from './components/link/link';
 
+export { MenuItem, MenuSection, MenuSeparator } from './components/menu/menu';
+export type { MenuItemProps, MenuSectionProps } from './components/menu/menu';
+
 export { Meter } from './components/meter/meter';
 export type { MeterProps, MeterVariant } from './components/meter/meter';
 
@@ -69,6 +90,9 @@ export type { NativeSelectProps } from './components/native-select/native-select
 
 export { Pagination } from './components/pagination/pagination';
 export type { PaginationProps } from './components/pagination/pagination';
+
+export { Popover, PopoverTrigger } from './components/popover/popover';
+export type { PopoverProps } from './components/popover/popover';
 
 export { Progress } from './components/progress/progress';
 export type { ProgressProps, ProgressSize } from './components/progress/progress';
@@ -84,6 +108,9 @@ export type { SelectItemProps, SelectProps } from './components/select/select';
 
 export { Separator } from './components/separator/separator';
 export type { SeparatorProps } from './components/separator/separator';
+
+export { Sheet } from './components/sheet/sheet';
+export type { SheetProps, SheetSide } from './components/sheet/sheet';
 
 export { Skeleton } from './components/skeleton/skeleton';
 export type { SkeletonProps, SkeletonShape } from './components/skeleton/skeleton';
@@ -109,11 +136,19 @@ export type { TextareaProps } from './components/textarea/textarea';
 export { TextareaField } from './components/textarea-field/textarea-field';
 export type { TextareaFieldProps } from './components/textarea-field/textarea-field';
 
+export { Toaster } from './components/toast/toast';
+export type { ToasterProps } from './components/toast/toast';
+export { toast } from './components/toast/toast-queue';
+export type { ToastContent, ToastOptions, ToastVariant } from './components/toast/toast-queue';
+
 export { Toggle } from './components/toggle/toggle';
 export type { ToggleProps, ToggleSize, ToggleVariant } from './components/toggle/toggle';
 
 export { ToggleGroup } from './components/toggle-group/toggle-group';
 export type { ToggleGroupProps } from './components/toggle-group/toggle-group';
+
+export { Tooltip, TooltipTrigger } from './components/tooltip/tooltip';
+export type { TooltipProps } from './components/tooltip/tooltip';
 
 export { Typography } from './components/typography/typography';
 export type { TypographyProps, TypographyVariant } from './components/typography/typography';

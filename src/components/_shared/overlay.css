@@ -1,0 +1,42 @@
+/* Keyframes shared by every overlay: popovers, tooltips, menus, modals, sheets and toasts.
+   React Aria sets data-entering and data-exiting, and waits for an exit animation to end
+   before it removes the element. */
+
+@keyframes tritium-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes tritium-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes tritium-zoom-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+
+@keyframes tritium-zoom-out {
+  to {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+
+/* Sheets set --tritium-slide-from to the edge they slide in from. */
+@keyframes tritium-slide-in {
+  from {
+    transform: var(--tritium-slide-from);
+  }
+}
+
+@keyframes tritium-slide-out {
+  to {
+    transform: var(--tritium-slide-from);
+  }
+}

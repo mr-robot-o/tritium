@@ -1,0 +1,5 @@
+.tritium-hover-card {
+  width: var(--size-64);
+  min-width: 0;
+  padding: var(--size-4);
+}

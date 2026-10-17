@@ -55,3 +55,12 @@ We are not adding new Bezel tokens yet. When a component needs a value that has 
 | Opacity | `--opacity-disabled` | `0.5` | `tabs.css` disabled tab |
 | Shadow | `--shadow-md` (floating surfaces) | `0 var(--size-1) var(--size-3) oklch(0 0 0 / 0.12)` | `_shared/popover.css` (`--tritium-popover-shadow`) |
 | Z-index | `--z-popover` | none set; React Aria's default layering is used | `_shared/popover.css` |
+| Color | `--overlay` | `oklch(0 0 0 / 0.5)` | `_shared/modal.css` (`--tritium-overlay-bg`) |
+| Shadow | `--shadow-lg` (modals) | `0 var(--size-2) var(--size-6) oklch(0 0 0 / 0.2)` | `_shared/modal.css` (`--tritium-modal-shadow`) |
+| Shadow | `--shadow-md` (toasts) | `0 var(--size-1) var(--size-3) oklch(0 0 0 / 0.12)` | `toast.css` (`--tritium-toast-shadow`) |
+| Z-index | `--z-overlay` | `100` | `_shared/modal.css` (`--tritium-overlay-z`) |
+| Z-index | `--z-toast` | `100` | `toast.css` (`--tritium-toast-z`) |
+| Motion / duration | `--duration-fast` | `0.15s` | `_shared/popover.css`, `tooltip.css` (`--tritium-overlay-duration`) |
+| Motion / duration | `--duration-quick` | `0.2s` | `_shared/modal.css` (dialog and sheet), `toast.css` |
+| Motion / easing | `--ease-in`, `--ease-out` | `ease-in`, `ease-out` | `_shared/popover.css`, `_shared/modal.css`, `tooltip.css`, `toast.css` |
+| Size | `--size-modal` (dialog width) | `calc(var(--size-96) + var(--size-16))` (448px) | `_shared/modal.css` (`--tritium-modal-width`) |

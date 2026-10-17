@@ -1,0 +1,19 @@
+/* The panel is the bottom sheet from modal.css; the rounding goes on the panel itself. */
+.tritium-modal--bottom:has(> .tritium-drawer) {
+  max-width: var(--size-96);
+  margin-inline: auto;
+  border-start-start-radius: var(--radius-xl);
+  border-start-end-radius: var(--radius-xl);
+}
+
+.tritium-drawer {
+  align-items: stretch;
+}
+
+.tritium-drawer__handle {
+  align-self: center;
+  width: var(--size-12);
+  height: var(--size-1-5);
+  border-radius: var(--radius-4xl);
+  background: var(--muted);
+}

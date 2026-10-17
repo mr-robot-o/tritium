@@ -1,5 +1,8 @@
+@import './overlay.css';
+
 /* The floating surface used by Select, Combobox and the overlays that follow. */
 .tritium-popover {
+  --tritium-overlay-duration: 0.15s;
   --tritium-popover-shadow: 0 var(--size-1) var(--size-3) oklch(0 0 0 / 0.12);
 
   box-sizing: border-box;
@@ -13,4 +16,19 @@
   font-size: var(--typography-xl-font-size);
   line-height: var(--typography-xl-line-height);
   letter-spacing: var(--typography-xl-letter-spacing);
+}
+
+.tritium-popover[data-entering] {
+  animation: tritium-fade-in var(--tritium-overlay-duration) ease-out;
+}
+
+.tritium-popover[data-exiting] {
+  animation: tritium-fade-out var(--tritium-overlay-duration) ease-in forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tritium-popover[data-entering],
+  .tritium-popover[data-exiting] {
+    animation: none;
+  }
 }
