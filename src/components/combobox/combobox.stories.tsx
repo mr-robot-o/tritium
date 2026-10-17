@@ -73,3 +73,10 @@ export const WithDescription: Story = { args: { description: 'Type to filter the
 export const Invalid: Story = { args: { isInvalid: true, errorMessage: 'Choose a framework.' } };
 
 export const Disabled: Story = { args: { isDisabled: true } };
+
+export const AllowsCustomValue: Story = {
+  args: {
+    allowsCustomValue: true,
+    description: 'Pick a suggestion or type your own. Text that is not in the list is kept.',
+  },
+};

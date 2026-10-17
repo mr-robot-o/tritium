@@ -4,12 +4,17 @@ import './list-box.css';
 
 export type OptionProps = ComponentProps<typeof ListBoxItem>;
 
-// One option in a Select or Combobox list. `textValue` is needed when the children are
-// not plain text, so typeahead and the selected value can still read it.
-export function Option({ className, children, ...props }: OptionProps) {
+// One option in a Select or Combobox list. React Aria reads the text of an option from plain
+// string children, but we wrap the children in a render function, so it can't see them. Without a
+// text value the Combobox can't filter or show the chosen option in its input, so take it from
+// the children when they are text. Otherwise the caller must pass `textValue`.
+export function Option({ className, children, textValue, ...props }: OptionProps) {
   return (
     <ListBoxItem
       {...props}
+      textValue={
+        textValue ?? (typeof children === 'string' || typeof children === 'number' ? String(children) : undefined)
+      }
       className={composeRenderProps(className, (className) =>
         className ? `tritium-list-box__item ${className}` : 'tritium-list-box__item',
       )}
