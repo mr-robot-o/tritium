@@ -1,0 +1,13 @@
+.tritium-aspect-ratio {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Media fills the box and crops rather than stretches. */
+.tritium-aspect-ratio > img,
+.tritium-aspect-ratio > video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

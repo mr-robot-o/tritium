@@ -1,0 +1,53 @@
+.tritium-badge {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--size-1);
+  width: fit-content;
+  padding: var(--size-0-5) var(--size-2);
+  border: var(--border-default) solid var(--tritium-badge-border, transparent);
+  border-radius: var(--radius-4xl);
+  background: var(--tritium-badge-bg);
+  color: var(--tritium-badge-fg);
+  font-family: var(--typography-lg-font-family);
+  font-size: var(--typography-lg-font-size);
+  font-weight: var(--font-weight-semi-bold);
+  line-height: var(--typography-lg-line-height);
+  letter-spacing: var(--typography-lg-letter-spacing);
+  white-space: nowrap;
+}
+
+.tritium-badge > svg {
+  flex: none;
+  width: 1em;
+  height: 1em;
+}
+
+/* Variants */
+
+.tritium-badge--primary {
+  --tritium-badge-bg: var(--primary);
+  --tritium-badge-fg: var(--primary-foreground);
+}
+
+.tritium-badge--secondary {
+  --tritium-badge-bg: var(--secondary);
+  --tritium-badge-fg: var(--secondary-foreground);
+}
+
+.tritium-badge--tertiary {
+  --tritium-badge-bg: var(--tertiary);
+  --tritium-badge-fg: var(--tertiary-foreground);
+}
+
+.tritium-badge--destructive {
+  --tritium-badge-bg: var(--destructive);
+  --tritium-badge-fg: var(--destructive-foreground);
+}
+
+.tritium-badge--outline {
+  --tritium-badge-bg: transparent;
+  --tritium-badge-fg: var(--foreground);
+  --tritium-badge-border: var(--border);
+}

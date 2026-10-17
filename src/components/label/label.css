@@ -1,0 +1,13 @@
+.tritium-label {
+  color: var(--foreground);
+  font-family: var(--typography-lg-font-family);
+  font-size: var(--typography-lg-font-size);
+  font-weight: var(--font-weight-semi-bold);
+  line-height: var(--typography-lg-line-height);
+  letter-spacing: var(--typography-lg-letter-spacing);
+}
+
+.tritium-label--required::after {
+  content: ' *';
+  color: var(--destructive);
+}

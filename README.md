@@ -40,3 +40,7 @@ We are not adding new Bezel tokens yet. When a component needs a value that has 
 | Motion / duration | `--duration-spinner` | `0.7s` (`2s` with reduced motion) | `spinner.css` (`--tritium-spinner-duration`) |
 | Motion / easing | `--ease-linear` | `linear` | `spinner.css` |
 | Color | `--accent-active` (or a neutral step alias) | `var(--neutral-800)` | `button.css` outline and ghost pressed background |
+| Motion / duration | `--duration-pulse` | `2s` | `skeleton.css` (`--tritium-skeleton-duration`) |
+| Motion / easing | `--ease-in-out` | `ease-in-out` | `skeleton.css` |
+| Opacity | `--opacity-pulse-low` | `0.5` | `skeleton.css` (`--tritium-skeleton-opacity-low`) |
+| Size | `--size-kbd` (control height) | `var(--size-5)` | `kbd.css` (`--tritium-kbd-height`) |

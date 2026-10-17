@@ -1,0 +1,52 @@
+.tritium-avatar {
+  --tritium-avatar-size: var(--size-8);
+  --tritium-avatar-bg: var(--muted);
+  --tritium-avatar-fg: var(--muted-foreground);
+
+  position: relative;
+  box-sizing: border-box;
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: var(--tritium-avatar-size);
+  height: var(--tritium-avatar-size);
+  overflow: hidden;
+  border-radius: 50%;
+  background: var(--tritium-avatar-bg);
+  color: var(--tritium-avatar-fg);
+  font-family: var(--typography-lg-font-family);
+  font-size: var(--typography-lg-font-size);
+  font-weight: var(--font-weight-semi-bold);
+  line-height: 1;
+  user-select: none;
+}
+
+.tritium-avatar__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tritium-avatar__fallback {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tritium-avatar__fallback > svg {
+  width: 1.25em;
+  height: 1.25em;
+}
+
+/* Sizes (default is set on .tritium-avatar) */
+
+.tritium-avatar--size-sm {
+  --tritium-avatar-size: var(--size-6);
+}
+
+.tritium-avatar--size-lg {
+  --tritium-avatar-size: var(--size-10);
+
+  font-size: var(--typography-xl-font-size);
+}
