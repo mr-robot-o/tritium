@@ -1,6 +1,11 @@
 import type { Preview } from '@storybook/react-vite'
-import { startLivePreviewReceiver } from '@bezel-labs/crystal'
+import { loadGoogleFonts, startLivePreviewReceiver } from '@bezel-labs/crystal'
 import '../src/bezel/variables.css'
+import { FONTS } from '../src/bezel/fonts'
+
+// Load the fonts Bezel generated (src/bezel/fonts.ts). Re-runs on HMR when `npm run tokens`
+// rewrites that file; the crystal receiver below also handles live font changes from Bezel.
+loadGoogleFonts(FONTS.map(({ family, weights }) => ({ family, weights: [...weights] })))
 
 // Receives live token CSS from Bezel (relayed by .storybook/manager.ts).
 // The manager re-posts each message to this iframe, so the message arrives with the
