@@ -44,3 +44,8 @@ We are not adding new Bezel tokens yet. When a component needs a value that has 
 | Motion / easing | `--ease-in-out` | `ease-in-out` | `skeleton.css` |
 | Opacity | `--opacity-pulse-low` | `0.5` | `skeleton.css` (`--tritium-skeleton-opacity-low`) |
 | Size | `--size-kbd` (control height) | `var(--size-5)` | `kbd.css` (`--tritium-kbd-height`) |
+| Radius | `--radius-xs` | `var(--size-1)` (4px) | `checkbox.css` (`--tritium-checkbox-radius`) |
+| Motion / duration | `--duration-fast` | `0.15s` | `switch.css` (`--tritium-switch-duration`) |
+| Motion / easing | `--ease-out` | `ease-out` | `switch.css` |
+| Color | `--input-hover` (or neutral step alias) | `var(--neutral-600)` | `switch.css` unselected track hover |
+| Size | `--size-textarea-min-height` | `var(--size-16)` (64px) | `textarea.css` (`--tritium-textarea-min-height`) |

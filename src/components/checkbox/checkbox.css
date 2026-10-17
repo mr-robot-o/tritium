@@ -1,0 +1,76 @@
+.tritium-checkbox {
+  --tritium-checkbox-size: var(--size-4);
+  --tritium-checkbox-radius: var(--size-1);
+  --tritium-checkbox-bg: var(--background);
+  --tritium-checkbox-fg: var(--primary-foreground);
+  --tritium-checkbox-border: var(--input);
+  --tritium-checkbox-label: var(--foreground);
+
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--size-2);
+  color: var(--tritium-checkbox-label);
+  font-family: var(--typography-xl-font-family);
+  font-size: var(--typography-xl-font-size);
+  font-weight: var(--typography-xl-font-weight);
+  line-height: var(--typography-xl-line-height);
+  letter-spacing: var(--typography-xl-letter-spacing);
+  cursor: pointer;
+}
+
+.tritium-checkbox__box {
+  box-sizing: border-box;
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: var(--tritium-checkbox-size);
+  height: var(--tritium-checkbox-size);
+  /* Centers the box on the first line of text. */
+  margin-block: calc((1lh - var(--tritium-checkbox-size)) / 2);
+  border: var(--border-default) solid var(--tritium-checkbox-border);
+  border-radius: var(--tritium-checkbox-radius);
+  background: var(--tritium-checkbox-bg);
+  color: var(--tritium-checkbox-fg);
+}
+
+.tritium-checkbox__box > svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* States */
+
+.tritium-checkbox[data-hovered]:not([data-disabled], [data-selected], [data-indeterminate]) {
+  --tritium-checkbox-bg: var(--accent);
+}
+
+.tritium-checkbox[data-selected],
+.tritium-checkbox[data-indeterminate] {
+  --tritium-checkbox-bg: var(--primary);
+  --tritium-checkbox-border: var(--primary);
+}
+
+.tritium-checkbox[data-selected][data-hovered]:not([data-disabled]),
+.tritium-checkbox[data-indeterminate][data-hovered]:not([data-disabled]) {
+  --tritium-checkbox-bg: var(--primary-hover);
+  --tritium-checkbox-border: var(--primary-hover);
+}
+
+.tritium-checkbox[data-invalid] {
+  --tritium-checkbox-border: var(--destructive);
+}
+
+.tritium-checkbox[data-focus-visible] .tritium-checkbox__box {
+  outline: var(--border-2) solid var(--ring);
+  outline-offset: var(--size-0-5);
+}
+
+.tritium-checkbox[data-disabled] {
+  --tritium-checkbox-label: var(--muted-foreground);
+  --tritium-checkbox-bg: var(--muted);
+  --tritium-checkbox-border: var(--muted);
+  --tritium-checkbox-fg: var(--muted-foreground);
+
+  cursor: not-allowed;
+}

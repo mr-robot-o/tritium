@@ -1,0 +1,10 @@
+/* Extra specificity so these win over the single-line box rules in input.css
+   regardless of the order the stylesheets load in. */
+.tritium-input.tritium-textarea:not(.tritium-input--grouped) {
+  --tritium-textarea-min-height: var(--size-16);
+
+  display: block;
+  min-height: var(--tritium-textarea-min-height);
+  padding-block: var(--size-2);
+  resize: vertical;
+}

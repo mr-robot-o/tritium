@@ -1,0 +1,93 @@
+.tritium-radio-group__items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-2);
+}
+
+.tritium-radio-group[data-orientation='horizontal'] .tritium-radio-group__items {
+  flex-flow: row wrap;
+  gap: var(--size-2) var(--size-4);
+}
+
+.tritium-radio {
+  --tritium-radio-size: var(--size-4);
+  --tritium-radio-dot-size: var(--size-2);
+  --tritium-radio-bg: var(--background);
+  --tritium-radio-border: var(--input);
+  --tritium-radio-dot: transparent;
+  --tritium-radio-label: var(--foreground);
+
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--size-2);
+  color: var(--tritium-radio-label);
+  font-family: var(--typography-xl-font-family);
+  font-size: var(--typography-xl-font-size);
+  font-weight: var(--typography-xl-font-weight);
+  line-height: var(--typography-xl-line-height);
+  letter-spacing: var(--typography-xl-letter-spacing);
+  cursor: pointer;
+}
+
+.tritium-radio__control {
+  box-sizing: border-box;
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: var(--tritium-radio-size);
+  height: var(--tritium-radio-size);
+  /* Centers the control on the first line of text. */
+  margin-block: calc((1lh - var(--tritium-radio-size)) / 2);
+  border: var(--border-default) solid var(--tritium-radio-border);
+  border-radius: 50%;
+  background: var(--tritium-radio-bg);
+}
+
+.tritium-radio__control::after {
+  content: '';
+  width: var(--tritium-radio-dot-size);
+  height: var(--tritium-radio-dot-size);
+  border-radius: 50%;
+  background: var(--tritium-radio-dot);
+}
+
+/* States */
+
+.tritium-radio[data-hovered]:not([data-disabled], [data-selected]) {
+  --tritium-radio-bg: var(--accent);
+}
+
+.tritium-radio[data-selected] {
+  --tritium-radio-border: var(--primary);
+  --tritium-radio-dot: var(--primary);
+}
+
+.tritium-radio[data-selected][data-hovered]:not([data-disabled]) {
+  --tritium-radio-border: var(--primary-hover);
+  --tritium-radio-dot: var(--primary-hover);
+}
+
+.tritium-radio[data-invalid] {
+  --tritium-radio-border: var(--destructive);
+}
+
+.tritium-radio[data-invalid][data-selected] {
+  --tritium-radio-dot: var(--destructive);
+}
+
+.tritium-radio[data-focus-visible] .tritium-radio__control {
+  outline: var(--border-2) solid var(--ring);
+  outline-offset: var(--size-0-5);
+}
+
+.tritium-radio[data-disabled] {
+  --tritium-radio-label: var(--muted-foreground);
+  --tritium-radio-bg: var(--muted);
+  --tritium-radio-border: var(--muted);
+
+  cursor: not-allowed;
+}
+
+.tritium-radio[data-disabled][data-selected] {
+  --tritium-radio-dot: var(--muted-foreground);
+}

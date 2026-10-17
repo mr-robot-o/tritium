@@ -1,0 +1,93 @@
+.tritium-switch {
+  --tritium-switch-track-width: var(--size-9);
+  --tritium-switch-track-height: var(--size-5);
+  --tritium-switch-thumb-size: var(--size-4);
+  --tritium-switch-padding: var(--size-0-5);
+  --tritium-switch-track-bg: var(--input);
+  --tritium-switch-thumb-bg: var(--background);
+  --tritium-switch-label: var(--foreground);
+  --tritium-switch-duration: 0.15s;
+
+  display: inline-flex;
+  align-items: center;
+  gap: var(--size-2);
+  color: var(--tritium-switch-label);
+  font-family: var(--typography-xl-font-family);
+  font-size: var(--typography-xl-font-size);
+  font-weight: var(--typography-xl-font-weight);
+  line-height: var(--typography-xl-line-height);
+  letter-spacing: var(--typography-xl-letter-spacing);
+  cursor: pointer;
+}
+
+.tritium-switch__track {
+  box-sizing: border-box;
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  width: var(--tritium-switch-track-width);
+  height: var(--tritium-switch-track-height);
+  padding: var(--tritium-switch-padding);
+  border-radius: var(--radius-4xl);
+  background: var(--tritium-switch-track-bg);
+  transition: background-color var(--tritium-switch-duration) ease-out;
+}
+
+.tritium-switch__thumb {
+  width: var(--tritium-switch-thumb-size);
+  height: var(--tritium-switch-thumb-size);
+  border-radius: 50%;
+  background: var(--tritium-switch-thumb-bg);
+  transition: transform var(--tritium-switch-duration) ease-out;
+}
+
+/* Sizes (default is set on .tritium-switch) */
+
+.tritium-switch--size-sm {
+  --tritium-switch-track-width: var(--size-7);
+  --tritium-switch-track-height: var(--size-4);
+  --tritium-switch-thumb-size: var(--size-3);
+}
+
+/* States */
+
+.tritium-switch[data-selected] {
+  --tritium-switch-track-bg: var(--primary);
+  --tritium-switch-thumb-bg: var(--primary-foreground);
+}
+
+.tritium-switch[data-selected] .tritium-switch__thumb {
+  transform: translateX(
+    calc(
+      var(--tritium-switch-track-width) - var(--tritium-switch-thumb-size) -
+        2 * var(--tritium-switch-padding)
+    )
+  );
+}
+
+.tritium-switch[data-hovered]:not([data-disabled], [data-selected]) {
+  --tritium-switch-track-bg: var(--neutral-600);
+}
+
+.tritium-switch[data-selected][data-hovered]:not([data-disabled]) {
+  --tritium-switch-track-bg: var(--primary-hover);
+}
+
+.tritium-switch[data-focus-visible] .tritium-switch__track {
+  outline: var(--border-2) solid var(--ring);
+  outline-offset: var(--size-0-5);
+}
+
+.tritium-switch[data-disabled] {
+  --tritium-switch-label: var(--muted-foreground);
+  --tritium-switch-track-bg: var(--muted);
+  --tritium-switch-thumb-bg: var(--muted-foreground);
+
+  cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tritium-switch {
+    --tritium-switch-duration: 0s;
+  }
+}

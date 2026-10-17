@@ -1,0 +1,87 @@
+.tritium-toggle {
+  --tritium-toggle-height: var(--size-10);
+  --tritium-toggle-padding-x: var(--size-3);
+  --tritium-toggle-bg: transparent;
+  --tritium-toggle-fg: var(--foreground);
+  --tritium-toggle-border: transparent;
+
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--size-2);
+  min-height: var(--tritium-toggle-height);
+  padding: var(--size-0) var(--tritium-toggle-padding-x);
+  border: var(--border-default) solid var(--tritium-toggle-border);
+  border-radius: var(--radius-md);
+  outline: none;
+  background: var(--tritium-toggle-bg);
+  color: var(--tritium-toggle-fg);
+  font-family: var(--typography-xl-font-family);
+  font-size: var(--typography-xl-font-size);
+  font-weight: var(--typography-xl-font-weight);
+  line-height: var(--typography-xl-line-height);
+  letter-spacing: var(--typography-xl-letter-spacing);
+  cursor: pointer;
+}
+
+.tritium-toggle > svg {
+  flex: none;
+  width: 1.25em;
+  height: 1.25em;
+}
+
+/* Variants */
+
+.tritium-toggle--outline {
+  --tritium-toggle-border: var(--input);
+}
+
+/* Sizes (default is set on .tritium-toggle). Heights match Button. */
+
+.tritium-toggle--size-sm {
+  --tritium-toggle-height: var(--size-8);
+  --tritium-toggle-padding-x: var(--size-2-5);
+
+  font-size: var(--typography-lg-font-size);
+  font-weight: var(--typography-lg-font-weight);
+  line-height: var(--typography-lg-line-height);
+  letter-spacing: var(--typography-lg-letter-spacing);
+}
+
+.tritium-toggle--size-lg {
+  --tritium-toggle-height: var(--size-12);
+  --tritium-toggle-padding-x: var(--size-4);
+}
+
+.tritium-toggle--icon-only {
+  --tritium-toggle-padding-x: var(--size-0);
+
+  min-width: var(--tritium-toggle-height);
+}
+
+/* States */
+
+.tritium-toggle[data-hovered]:not([data-disabled], [data-selected]) {
+  --tritium-toggle-bg: var(--muted);
+}
+
+.tritium-toggle[data-pressed]:not([data-disabled]) {
+  --tritium-toggle-bg: var(--accent);
+}
+
+.tritium-toggle[data-selected] {
+  --tritium-toggle-bg: var(--accent);
+  --tritium-toggle-fg: var(--accent-foreground);
+}
+
+.tritium-toggle[data-focus-visible] {
+  outline: var(--border-2) solid var(--ring);
+  outline-offset: var(--size-0-5);
+}
+
+.tritium-toggle[data-disabled] {
+  --tritium-toggle-fg: var(--muted-foreground);
+
+  cursor: not-allowed;
+}
