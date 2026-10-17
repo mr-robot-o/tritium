@@ -2,6 +2,7 @@ import type { Preview } from '@storybook/react-vite'
 import { loadGoogleFonts, startLivePreviewReceiver } from '@bezel-labs/crystal'
 import { resolveInitialContext, DEFAULT_CONTEXT } from '@bezel-labs/loupe'
 import '../src/bezel/variables.css'
+import './preview.css'
 import { FONTS } from '../src/bezel/fonts'
 import { CONTEXTS } from '../src/bezel/contexts'
 
