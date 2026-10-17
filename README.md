@@ -51,3 +51,5 @@ We are not adding new Bezel tokens yet. When a component needs a value that has 
 | Size | `--size-textarea-min-height` | `var(--size-16)` (64px) | `textarea.css` (`--tritium-textarea-min-height`) |
 | Motion / duration | `--duration-indeterminate` | `1.5s` (`4s` with reduced motion) | `progress.css` (`--tritium-progress-duration`) |
 | Motion / duration | `--duration-quick` | `0.2s` | `progress.css` fill width transition |
+| Motion / duration | `--duration-quick` | `0.2s` | `accordion.css` chevron rotation (`--tritium-accordion-duration`) |
+| Opacity | `--opacity-disabled` | `0.5` | `tabs.css` disabled tab |

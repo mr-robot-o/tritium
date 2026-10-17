@@ -1,0 +1,21 @@
+.tritium-pagination__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--size-1);
+  margin: var(--size-0);
+  padding: var(--size-0);
+  list-style: none;
+}
+
+.tritium-pagination__ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-10);
+  height: var(--size-10);
+  color: var(--muted-foreground);
+  font-family: var(--typography-xl-font-family);
+  font-size: var(--typography-xl-font-size);
+  user-select: none;
+}

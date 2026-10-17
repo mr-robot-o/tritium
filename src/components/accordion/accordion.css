@@ -1,0 +1,81 @@
+.tritium-accordion {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-family: var(--typography-xl-font-family);
+}
+
+.tritium-accordion__item {
+  border-bottom: var(--border-default) solid var(--border);
+}
+
+.tritium-accordion__heading {
+  margin: var(--size-0);
+  font: inherit;
+}
+
+.tritium-accordion__trigger {
+  --tritium-accordion-trigger-fg: var(--foreground);
+
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--size-4);
+  width: 100%;
+  padding: var(--size-4) var(--size-0);
+  border: 0;
+  border-radius: var(--radius-sm);
+  outline: none;
+  background: transparent;
+  color: var(--tritium-accordion-trigger-fg);
+  font-family: inherit;
+  font-size: var(--typography-xl-font-size);
+  font-weight: var(--font-weight-semi-bold);
+  line-height: var(--typography-xl-line-height);
+  letter-spacing: var(--typography-xl-letter-spacing);
+  text-align: start;
+  cursor: pointer;
+}
+
+.tritium-accordion__chevron {
+  flex: none;
+  width: 1.25em;
+  height: 1.25em;
+  color: var(--muted-foreground);
+  transition: transform var(--tritium-accordion-duration, 0.2s) ease-out;
+}
+
+.tritium-accordion__trigger[aria-expanded='true'] .tritium-accordion__chevron {
+  transform: rotate(180deg);
+}
+
+.tritium-accordion__trigger[data-hovered]:not([data-disabled]) .tritium-accordion__title {
+  text-decoration: underline;
+  text-underline-offset: var(--size-1);
+}
+
+.tritium-accordion__trigger[data-focus-visible] {
+  outline: var(--border-2) solid var(--ring);
+  outline-offset: calc(-1 * var(--border-2));
+}
+
+.tritium-accordion__trigger[data-disabled] {
+  --tritium-accordion-trigger-fg: var(--muted-foreground);
+
+  cursor: not-allowed;
+}
+
+.tritium-accordion__content {
+  padding-block-end: var(--size-4);
+  color: var(--foreground);
+  font-size: var(--typography-xl-font-size);
+  line-height: var(--typography-xl-line-height);
+  letter-spacing: var(--typography-xl-letter-spacing);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tritium-accordion {
+    --tritium-accordion-duration: 0s;
+  }
+}

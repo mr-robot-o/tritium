@@ -1,3 +1,6 @@
+export { Accordion, AccordionItem } from './components/accordion/accordion';
+export type { AccordionItemProps, AccordionProps } from './components/accordion/accordion';
+
 export { Alert, AlertDescription, AlertTitle } from './components/alert/alert';
 export type { AlertProps, AlertVariant } from './components/alert/alert';
 
@@ -10,6 +13,9 @@ export type { AvatarProps, AvatarSize } from './components/avatar/avatar';
 export { Badge } from './components/badge/badge';
 export type { BadgeProps, BadgeVariant } from './components/badge/badge';
 
+export { Breadcrumb, Breadcrumbs } from './components/breadcrumb/breadcrumb';
+export type { BreadcrumbProps, BreadcrumbsProps } from './components/breadcrumb/breadcrumb';
+
 export { Button } from './components/button/button';
 export type { ButtonProps, ButtonSize, ButtonVariant } from './components/button/button';
 
@@ -21,6 +27,9 @@ export type { CardProps } from './components/card/card';
 
 export { Checkbox } from './components/checkbox/checkbox';
 export type { CheckboxProps } from './components/checkbox/checkbox';
+
+export { Collapsible, CollapsiblePanel } from './components/collapsible/collapsible';
+export type { CollapsiblePanelProps, CollapsibleProps } from './components/collapsible/collapsible';
 
 export { Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle } from './components/empty/empty';
 export type { EmptyMediaProps } from './components/empty/empty';
@@ -46,8 +55,14 @@ export type { KbdProps } from './components/kbd/kbd';
 export { Label } from './components/label/label';
 export type { LabelProps } from './components/label/label';
 
+export { Link } from './components/link/link';
+export type { LinkProps, LinkVariant } from './components/link/link';
+
 export { Meter } from './components/meter/meter';
 export type { MeterProps, MeterVariant } from './components/meter/meter';
+
+export { Pagination } from './components/pagination/pagination';
+export type { PaginationProps } from './components/pagination/pagination';
 
 export { Progress } from './components/progress/progress';
 export type { ProgressProps, ProgressSize } from './components/progress/progress';
@@ -72,6 +87,9 @@ export type { SpinnerProps } from './components/spinner/spinner';
 
 export { Switch } from './components/switch/switch';
 export type { SwitchProps, SwitchSize } from './components/switch/switch';
+
+export { Tab, TabList, TabPanel, Tabs } from './components/tabs/tabs';
+export type { TabListProps, TabPanelProps, TabProps, TabsProps, TabsVariant } from './components/tabs/tabs';
 
 export { TextField } from './components/text-field/text-field';
 export type { TextFieldProps } from './components/text-field/text-field';

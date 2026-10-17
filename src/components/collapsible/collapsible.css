@@ -1,0 +1,13 @@
+.tritium-collapsible {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-2);
+  font-family: var(--typography-xl-font-family);
+  font-size: var(--typography-xl-font-size);
+  line-height: var(--typography-xl-line-height);
+  letter-spacing: var(--typography-xl-letter-spacing);
+}
+
+.tritium-collapsible__panel {
+  color: var(--foreground);
+}

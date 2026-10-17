@@ -1,0 +1,48 @@
+.tritium-link {
+  --tritium-link-fg: var(--primary);
+  --tritium-link-decoration: underline;
+
+  border-radius: var(--radius-sm);
+  outline: none;
+  color: var(--tritium-link-fg);
+  font: inherit;
+  text-decoration: var(--tritium-link-decoration);
+  text-underline-offset: var(--size-1);
+  cursor: pointer;
+}
+
+.tritium-link--muted {
+  --tritium-link-fg: var(--muted-foreground);
+  --tritium-link-decoration: none;
+}
+
+/* States */
+
+.tritium-link[data-hovered]:not([data-disabled]) {
+  --tritium-link-decoration: underline;
+}
+
+.tritium-link--default[data-hovered]:not([data-disabled]) {
+  --tritium-link-fg: var(--primary-hover);
+}
+
+.tritium-link--default[data-pressed]:not([data-disabled]) {
+  --tritium-link-fg: var(--primary-active);
+}
+
+.tritium-link--muted[data-hovered]:not([data-disabled]),
+.tritium-link--muted[data-pressed]:not([data-disabled]) {
+  --tritium-link-fg: var(--foreground);
+}
+
+.tritium-link[data-focus-visible] {
+  outline: var(--border-2) solid var(--ring);
+  outline-offset: var(--size-0-5);
+}
+
+.tritium-link[data-disabled] {
+  --tritium-link-fg: var(--muted-foreground);
+  --tritium-link-decoration: none;
+
+  cursor: not-allowed;
+}
