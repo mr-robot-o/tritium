@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Controls, Description, Heading, Stories, Title } from '@storybook/addon-docs/blocks';
+import { Button } from '../button/button';
 import { TextField } from './text-field';
 
 const meta = {
@@ -87,7 +88,7 @@ export const Validation: Story = {
   render: (args) => (
     <form onSubmit={(e) => e.preventDefault()} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
       <TextField {...args} />
-      <button type="submit" style={{ alignSelf: 'start' }}>Submit</button>
+      <Button type="submit" style={{ alignSelf: 'start' }}>Submit</Button>
     </form>
   ),
 };
