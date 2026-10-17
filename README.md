@@ -53,3 +53,5 @@ We are not adding new Bezel tokens yet. When a component needs a value that has 
 | Motion / duration | `--duration-quick` | `0.2s` | `progress.css` fill width transition |
 | Motion / duration | `--duration-quick` | `0.2s` | `accordion.css` chevron rotation (`--tritium-accordion-duration`) |
 | Opacity | `--opacity-disabled` | `0.5` | `tabs.css` disabled tab |
+| Shadow | `--shadow-md` (floating surfaces) | `0 var(--size-1) var(--size-3) oklch(0 0 0 / 0.12)` | `_shared/popover.css` (`--tritium-popover-shadow`) |
+| Z-index | `--z-popover` | none set; React Aria's default layering is used | `_shared/popover.css` |

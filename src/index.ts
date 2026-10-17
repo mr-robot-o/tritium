@@ -31,6 +31,9 @@ export type { CheckboxProps } from './components/checkbox/checkbox';
 export { Collapsible, CollapsiblePanel } from './components/collapsible/collapsible';
 export type { CollapsiblePanelProps, CollapsibleProps } from './components/collapsible/collapsible';
 
+export { Combobox, ComboboxItem } from './components/combobox/combobox';
+export type { ComboboxItemProps, ComboboxProps } from './components/combobox/combobox';
+
 export { Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle } from './components/empty/empty';
 export type { EmptyMediaProps } from './components/empty/empty';
 
@@ -61,6 +64,9 @@ export type { LinkProps, LinkVariant } from './components/link/link';
 export { Meter } from './components/meter/meter';
 export type { MeterProps, MeterVariant } from './components/meter/meter';
 
+export { NativeSelect } from './components/native-select/native-select';
+export type { NativeSelectProps } from './components/native-select/native-select';
+
 export { Pagination } from './components/pagination/pagination';
 export type { PaginationProps } from './components/pagination/pagination';
 
@@ -72,6 +78,9 @@ export type { RadioGroupProps, RadioProps } from './components/radio-group/radio
 
 export { ScrollArea } from './components/scroll-area/scroll-area';
 export type { ScrollAreaProps } from './components/scroll-area/scroll-area';
+
+export { Select, SelectItem } from './components/select/select';
+export type { SelectItemProps, SelectProps } from './components/select/select';
 
 export { Separator } from './components/separator/separator';
 export type { SeparatorProps } from './components/separator/separator';
