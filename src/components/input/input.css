@@ -1,10 +1,5 @@
 /* ---------- Structure (layout only, no design values) ---------- */
 
-.tritium-field {
-  display: flex;
-  flex-direction: column;
-}
-
 .tritium-input {
   box-sizing: border-box;
   width: 100%;
@@ -18,51 +13,40 @@
   opacity: 1; /* Firefox dims placeholders by default; the color token controls it. */
 }
 
+.tritium-input-group {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-style: solid;
+}
+
+.tritium-input__content {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+}
+
+/* Inside a group the group draws the box, so the input itself is bare. */
+.tritium-input--grouped {
+  flex: 1;
+  align-self: stretch;
+  border: 0;
+  background: transparent;
+}
+
 /* ---------- Design values (Bezel tokens) ---------- */
 
-.tritium-field {
-  gap: var(--size-1-5);
-  font-family: var(--typography-xl-font-family);
-}
-
-.tritium-field__label {
-  color: var(--foreground);
-  font-size: var(--typography-lg-font-size);
-  font-weight: var(--font-weight-semi-bold);
-  line-height: var(--typography-lg-line-height);
-  letter-spacing: var(--typography-lg-letter-spacing);
-}
-
-.tritium-field__description {
-  color: var(--muted-foreground);
-  font-size: var(--typography-lg-font-size);
-  font-weight: var(--typography-lg-font-weight);
-  line-height: var(--typography-lg-line-height);
-  letter-spacing: var(--typography-lg-letter-spacing);
-}
-
-.tritium-field__error {
-  color: var(--destructive);
-  font-size: var(--typography-lg-font-size);
-  font-weight: var(--typography-lg-font-weight);
-  line-height: var(--typography-lg-line-height);
-  letter-spacing: var(--typography-lg-letter-spacing);
-}
-
-.tritium-input {
+.tritium-input,
+.tritium-input-group {
+  --tritium-input-height: var(--size-10);
+  --tritium-input-padding-x: var(--size-3);
   --tritium-input-bg: var(--background);
   --tritium-input-bg-hover: var(--accent);
   --tritium-input-fg: var(--foreground);
   --tritium-input-border: var(--input);
   --tritium-input-placeholder: var(--muted-foreground);
 
-  min-height: var(--size-10);
-  padding: var(--size-0) var(--size-3);
-  border-width: var(--border-default);
-  border-color: var(--tritium-input-border);
-  border-radius: var(--radius-md);
-  background: var(--tritium-input-bg);
-  color: var(--tritium-input-fg);
   font-family: var(--typography-xl-font-family);
   font-size: var(--typography-xl-font-size);
   font-weight: var(--typography-xl-font-weight);
@@ -70,34 +54,89 @@
   letter-spacing: var(--typography-xl-letter-spacing);
 }
 
+/* The box: a plain input, or the group around an input with start or end content. */
+.tritium-input:not(.tritium-input--grouped),
+.tritium-input-group {
+  min-height: var(--tritium-input-height);
+  padding: var(--size-0) var(--tritium-input-padding-x);
+  border-width: var(--border-default);
+  border-color: var(--tritium-input-border);
+  border-radius: var(--radius-md);
+  background: var(--tritium-input-bg);
+  color: var(--tritium-input-fg);
+}
+
+.tritium-input-group {
+  gap: var(--size-2);
+}
+
+.tritium-input--grouped {
+  min-height: 0;
+  padding: var(--size-0);
+  color: var(--tritium-input-fg);
+}
+
 .tritium-input::placeholder {
   color: var(--tritium-input-placeholder);
 }
 
-/* States. React Aria sets data-hovered, data-focus-visible, data-disabled and
-   data-invalid on the <input>. It sets no read-only attribute, so read-only
-   uses the native `readonly` attribute that TextField forwards. */
-
-.tritium-input[data-hovered]:not([data-disabled], [readonly]) {
-  background: var(--tritium-input-bg-hover);
+.tritium-input__content {
+  color: var(--muted-foreground);
 }
 
-.tritium-input[data-invalid] {
+.tritium-input__content > svg {
+  width: 1.25em;
+  height: 1.25em;
+}
+
+/* Sizes (default is set above). Heights match Button. */
+
+.tritium-input--size-sm {
+  --tritium-input-height: var(--size-8);
+  --tritium-input-padding-x: var(--size-2-5);
+
+  font-size: var(--typography-lg-font-size);
+  font-weight: var(--typography-lg-font-weight);
+  line-height: var(--typography-lg-line-height);
+  letter-spacing: var(--typography-lg-letter-spacing);
+}
+
+.tritium-input--size-lg {
+  --tritium-input-height: var(--size-12);
+  --tritium-input-padding-x: var(--size-4);
+}
+
+/* States. React Aria sets data-hovered, data-focus-visible, data-disabled and
+   data-invalid on the <input>. It sets no read-only attribute, so read-only
+   uses the native `readonly` attribute that TextField forwards. A group has no
+   state of its own, so it reads the state of the input inside it. */
+
+.tritium-input[data-hovered]:not([data-disabled], [readonly], .tritium-input--grouped),
+.tritium-input-group:hover:not(:has([data-disabled], [readonly])) {
+  --tritium-input-bg: var(--tritium-input-bg-hover);
+}
+
+.tritium-input[data-invalid],
+.tritium-input[aria-invalid='true'],
+.tritium-input-group:has([data-invalid], [aria-invalid='true']) {
   --tritium-input-border: var(--destructive);
 }
 
 /* The focus ring is an outline, separate from the border, so an invalid field
    keeps the destructive border and still shows the ring. */
-.tritium-input[data-focus-visible] {
+.tritium-input[data-focus-visible]:not(.tritium-input--grouped),
+.tritium-input-group:has([data-focus-visible]) {
   outline: var(--border-2) solid var(--ring);
   outline-offset: var(--size-0-5);
 }
 
-.tritium-input[readonly] {
+.tritium-input[readonly],
+.tritium-input-group:has([readonly]) {
   --tritium-input-bg: var(--muted);
 }
 
-.tritium-input[data-disabled] {
+.tritium-input[data-disabled],
+.tritium-input-group:has([data-disabled]) {
   --tritium-input-bg: var(--muted);
   --tritium-input-fg: var(--muted-foreground);
 

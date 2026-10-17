@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Controls, Description, Heading, Stories, Title } from '@storybook/addon-docs/blocks';
-import { FieldError, Label, Text, TextField } from 'react-aria-components';
 import { Input } from './input';
 
 const meta = {
@@ -30,17 +29,31 @@ const meta = {
       control: 'text',
       description: 'Temporary text shown when the input is empty.',
     },
-    disabled: {
-      control: 'boolean',
-      description: 'Disables the input.',
+    size: {
+      description:
+        'The input height. `sm`, `default` and `lg` match the Button `sm`, `default` and `lg` heights.',
     },
-    readOnly: {
-      control: 'boolean',
-      description: 'Makes the input read-only. It stays focusable but its value cannot be edited.',
+    startContent: {
+      control: false,
+      description: 'Content shown inside the field before the text. Icons, text or a button.',
     },
-    'aria-invalid': {
+    endContent: {
+      control: false,
+      description: 'Content shown inside the field after the text. Icons, text or a button.',
+    },
+    isDisabled: {
       control: 'boolean',
-      description: 'Marks the input as invalid. Inside a `TextField`, use `isInvalid` or validation instead.',
+      description: 'Disables the input. Same as the native `disabled` attribute.',
+    },
+    isReadOnly: {
+      control: 'boolean',
+      description:
+        'Makes the input read-only. It stays focusable but its value cannot be edited. Same as the native `readOnly` attribute.',
+    },
+    isInvalid: {
+      control: 'boolean',
+      description:
+        'Marks the input as invalid. Same as `aria-invalid`. Inside a `TextField`, set `isInvalid` or use validation on the field instead.',
     },
     className: {
       control: false,
@@ -79,15 +92,15 @@ export const WithValue: Story = {
 };
 
 export const Disabled: Story = {
-  args: { defaultValue: 'Disabled input', disabled: true },
+  args: { defaultValue: 'Disabled input', isDisabled: true },
 };
 
 export const ReadOnly: Story = {
-  args: { defaultValue: 'Read-only input', readOnly: true },
+  args: { defaultValue: 'Read-only input', isReadOnly: true },
 };
 
 export const Invalid: Story = {
-  args: { defaultValue: 'Not valid', 'aria-invalid': true },
+  args: { defaultValue: 'Not valid', isInvalid: true },
   parameters: {
     docs: {
       description: {
@@ -97,50 +110,61 @@ export const Invalid: Story = {
   },
 };
 
-export const WithLabel: Story = {
-  render: () => (
-    <TextField className="tritium-field" style={{ width: 320 }}>
-      <Label className="tritium-field__label">Email</Label>
-      <Input placeholder="you@example.com" />
-    </TextField>
-  ),
-};
-
-export const WithDescription: Story = {
-  render: () => (
-    <TextField className="tritium-field" style={{ width: 320 }}>
-      <Label className="tritium-field__label">Username</Label>
-      <Input placeholder="username" />
-      <Text slot="description" className="tritium-field__description">
-        Letters and numbers only.
-      </Text>
-    </TextField>
-  ),
-};
-
-export const WithError: Story = {
-  render: () => (
-    <TextField
-      className="tritium-field"
-      style={{ width: 320 }}
-      isInvalid
-      defaultValue="not-an-email"
-    >
-      <Label className="tritium-field__label">Email</Label>
-      <Input />
-      <FieldError className="tritium-field__error">Enter a valid email address.</FieldError>
-    </TextField>
-  ),
-};
-
 export const States: Story = {
   render: () => (
     <div style={column}>
       <Input aria-label="Default" placeholder="Default" />
       <Input aria-label="With value" defaultValue="With value" />
-      <Input aria-label="Disabled" defaultValue="Disabled" disabled />
-      <Input aria-label="Read-only" defaultValue="Read-only" readOnly />
-      <Input aria-label="Invalid" defaultValue="Invalid" aria-invalid="true" />
+      <Input aria-label="Disabled" defaultValue="Disabled" isDisabled />
+      <Input aria-label="Read-only" defaultValue="Read-only" isReadOnly />
+      <Input aria-label="Invalid" defaultValue="Invalid" isInvalid />
+    </div>
+  ),
+};
+
+export const Sizes: Story = {
+  render: () => (
+    <div style={column}>
+      <Input aria-label="Small" size="sm" placeholder="Small" />
+      <Input aria-label="Default" placeholder="Default" />
+      <Input aria-label="Large" size="lg" placeholder="Large" />
+    </div>
+  ),
+};
+
+const SearchIcon = (
+  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+    <circle cx="9" cy="9" r="5" />
+    <path d="M13 13l4 4" />
+  </svg>
+);
+
+export const WithContent: Story = {
+  render: () => (
+    <div style={column}>
+      <Input aria-label="Search" placeholder="Search" startContent={SearchIcon} />
+      <Input aria-label="Amount" defaultValue="100" startContent="$" endContent="USD" />
+      <Input aria-label="Website" placeholder="example.com" startContent="https://" size="sm" />
+      <Input aria-label="Search, large" placeholder="Search" startContent={SearchIcon} size="lg" />
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Start and end content sit inside the field border and focus ring. Clicking it focuses the input. Interactive content, such as a `Button`, keep their own click.',
+      },
+    },
+  },
+};
+
+export const ContentStates: Story = {
+  render: () => (
+    <div style={column}>
+      <Input aria-label="Default" placeholder="Default" startContent={SearchIcon} />
+      <Input aria-label="Disabled" defaultValue="Disabled" isDisabled startContent={SearchIcon} />
+      <Input aria-label="Read-only" defaultValue="Read-only" isReadOnly startContent={SearchIcon} />
+      <Input aria-label="Invalid" defaultValue="Invalid" isInvalid startContent={SearchIcon} />
     </div>
   ),
 };

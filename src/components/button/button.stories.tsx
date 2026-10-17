@@ -35,7 +35,23 @@ const meta = {
     },
     size: {
       description:
-        'The button size. The `icon` sizes are square and are meant for icon-only buttons, which need an `aria-label`.',
+        'The button size. Combine with `isIconOnly` for a square button of the same height.',
+    },
+    startContent: {
+      control: false,
+      description: 'Content shown before the label, usually an icon. While the button is pending, the spinner replaces it.',
+    },
+    endContent: {
+      control: false,
+      description: 'Content shown after the label, usually an icon.',
+    },
+    isIconOnly: {
+      control: 'boolean',
+      description: 'Renders a square button for a single icon. It needs an `aria-label`.',
+    },
+    isFullWidth: {
+      control: 'boolean',
+      description: 'Stretches the button to the full width of its container.',
     },
     isDisabled: {
       control: 'boolean',
@@ -114,40 +130,84 @@ export const Sizes: Story = {
 export const IconSizes: Story = {
   render: (args) => (
     <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-      <Button {...args} size="icon-xs" aria-label="Add item (extra small)">
+      <Button {...args} isIconOnly size="xs" aria-label="Add item (extra small)">
         <span aria-hidden="true">+</span>
       </Button>
-      <Button {...args} size="icon-sm" aria-label="Add item (small)">
+      <Button {...args} isIconOnly size="sm" aria-label="Add item (small)">
         <span aria-hidden="true">+</span>
       </Button>
-      <Button {...args} size="icon" aria-label="Add item">
+      <Button {...args} isIconOnly aria-label="Add item">
         <span aria-hidden="true">+</span>
       </Button>
-      <Button {...args} size="icon-lg" aria-label="Add item (large)">
+      <Button {...args} isIconOnly size="lg" aria-label="Add item (large)">
         <span aria-hidden="true">+</span>
       </Button>
     </div>
   ),
 };
 
+const variants = ['primary', 'secondary', 'tertiary', 'destructive', 'outline', 'ghost', 'link'] as const;
+
 export const Disabled: Story = {
-  args: { children: 'Disabled button', isDisabled: true },
+  args: { children: 'Disabled', isDisabled: true },
+  render: (args) => (
+    <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 16 }}>
+      {variants.map((variant) => (
+        <Button key={variant} {...args} variant={variant} />
+      ))}
+    </div>
+  ),
 };
 
 export const Loading: Story = {
-  args: { children: 'Loading…', isPending: true },
+  args: { children: 'Saving', isPending: true },
+  render: (args) => (
+    <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 16 }}>
+      {variants.map((variant) => (
+        <Button key={variant} {...args} variant={variant} />
+      ))}
+    </div>
+  ),
 };
 
-export const WithIcon: Story = {
-  args: {
-    children: <><span aria-hidden="true">+</span> Add item</>,
-  },
+const PlusIcon = (
+  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+    <path d="M10 4v12M4 10h12" />
+  </svg>
+);
+
+const ArrowIcon = (
+  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M4 10h12M11 5l5 5-5 5" />
+  </svg>
+);
+
+export const WithIcons: Story = {
+  render: (args) => (
+    <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+      <Button {...args} startContent={PlusIcon}>Add item</Button>
+      <Button {...args} endContent={ArrowIcon}>Continue</Button>
+      <Button {...args} startContent={PlusIcon} endContent={ArrowIcon}>Both</Button>
+      <Button {...args} startContent={PlusIcon} isPending>Pending</Button>
+    </div>
+  ),
 };
 
 export const IconOnly: Story = {
   args: {
     'aria-label': 'Add item',
-    size: 'icon',
-    children: <span aria-hidden="true">+</span>,
+    isIconOnly: true,
+    children: PlusIcon,
   },
+};
+
+export const FullWidth: Story = {
+  args: { children: 'Full width', isFullWidth: true },
+  decorators: [
+    (Story) => (
+      <div style={{ width: 320 }}>
+        <Story />
+      </div>
+    ),
+  ],
 };

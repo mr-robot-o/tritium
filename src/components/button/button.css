@@ -80,41 +80,51 @@
 
 /* Sizes (default is set on .tritium-button) */
 
-.tritium-button--size-xs,
-.tritium-button--size-icon-xs {
+.tritium-button--size-xs {
   --tritium-button-height: var(--size-6);
   --tritium-button-padding-x: var(--size-2);
 }
 
-.tritium-button--size-sm,
-.tritium-button--size-icon-sm {
+.tritium-button--size-sm {
   --tritium-button-height: var(--size-8);
   --tritium-button-padding-x: var(--size-3);
 }
 
-.tritium-button--size-lg,
-.tritium-button--size-icon-lg {
+.tritium-button--size-lg {
   --tritium-button-height: var(--size-12);
   --tritium-button-padding-x: var(--size-6);
 }
 
 .tritium-button--size-xs,
-.tritium-button--size-sm,
-.tritium-button--size-icon-xs,
-.tritium-button--size-icon-sm {
+.tritium-button--size-sm {
   font-size: var(--typography-lg-font-size);
   font-weight: var(--typography-lg-font-weight);
   line-height: var(--typography-lg-line-height);
   letter-spacing: var(--typography-lg-letter-spacing);
 }
 
-.tritium-button--size-icon-xs,
-.tritium-button--size-icon-sm,
-.tritium-button--size-icon,
-.tritium-button--size-icon-lg {
+/* Modifiers */
+
+.tritium-button--icon-only {
   --tritium-button-padding-x: var(--size-0);
 
   min-width: var(--tritium-button-height);
+}
+
+.tritium-button--full-width {
+  width: 100%;
+}
+
+.tritium-button__content {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+}
+
+.tritium-button__content > svg,
+.tritium-button--icon-only > svg {
+  width: 1.25em;
+  height: 1.25em;
 }
 
 /* States */
@@ -136,10 +146,46 @@
   outline-offset: var(--size-0-5);
 }
 
+/* Disabled mutes the label and fills solid variants with the muted surface.
+   Variants without a fill (outline, ghost, link) keep their own background. */
 .tritium-button[data-disabled] {
+  --tritium-button-fg: var(--muted-foreground);
+
   cursor: not-allowed;
 }
 
+.tritium-button[data-disabled]:not(
+  .tritium-button--outline,
+  .tritium-button--ghost,
+  .tritium-button--link
+) {
+  --tritium-button-bg: var(--muted);
+}
+
+/* Pending keeps the variant colors, so it reads as busy rather than unavailable. */
 .tritium-button[data-pending] {
   cursor: progress;
+}
+
+.tritium-button__spinner {
+  box-sizing: border-box;
+  flex: none;
+  width: 1em;
+  height: 1em;
+  border: var(--border-2) solid currentColor;
+  border-inline-end-color: transparent;
+  border-radius: 50%;
+  animation: tritium-button-spin 0.7s linear infinite;
+}
+
+@keyframes tritium-button-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tritium-button__spinner {
+    animation-duration: 2s;
+  }
 }
