@@ -115,11 +115,21 @@
 }
 
 .tritium-tabs--line .tritium-tabs__tab {
+  position: relative;
   border-width: var(--border-0);
   border-radius: var(--radius-sm);
-  /* The indicator is drawn over the list's rule. */
-  box-shadow: inset 0 calc(-1 * var(--border-2)) 0 0 var(--tritium-tabs-indicator, transparent);
   margin-bottom: calc(-1 * var(--border-default));
+}
+
+/* The indicator is a pseudo-element rather than a box-shadow, so it stays a straight
+   line instead of following the tab's rounded corners. It overlaps the list's rule. */
+.tritium-tabs--line .tritium-tabs__tab::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: var(--border-2);
+  background: var(--tritium-tabs-indicator, transparent);
 }
 
 .tritium-tabs--line .tritium-tabs__tab[data-selected] {
@@ -127,8 +137,14 @@
 }
 
 .tritium-tabs--line[data-orientation='vertical'] .tritium-tabs__tab {
-  box-shadow: inset calc(-1 * var(--border-2)) 0 0 0 var(--tritium-tabs-indicator, transparent);
+  justify-content: flex-start;
   margin-bottom: 0;
   margin-inline-end: calc(-1 * var(--border-default));
-  justify-content: flex-start;
+}
+
+.tritium-tabs--line[data-orientation='vertical'] .tritium-tabs__tab::after {
+  inset-block: 0;
+  inset-inline: auto 0;
+  width: var(--border-2);
+  height: auto;
 }
