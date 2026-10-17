@@ -1,75 +1,42 @@
-# React + TypeScript + Vite
+# Tritium
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React component library built on [React Aria Components](https://react-aria.adobe.com/), vanilla CSS and [Bezel](https://bezel.new) design tokens, documented in Storybook. The component set follows [shadcn/ui](https://ui.shadcn.com/docs/components).
 
-Currently, two official plugins are available:
+## Getting started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```sh
+npm install
+npm run dev     # generates tokens, then starts Storybook on :6006
+npm run lint
+npm run tokens  # regenerate src/bezel/* from design-tokens.json
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+`src/bezel/variables.css`, `contexts.ts` and `fonts.ts` are generated and gitignored, so run `npm run tokens` before the first build.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Usage
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Components are exported from `src/index.ts` (a source export for now; there is no library build yet).
 
+```tsx
+import '<path-to>/src/bezel/variables.css'; // consumer loads the Bezel tokens
+import { Button, TextField } from 'tritium';
 ```
+
+## Conventions
+
+- One folder per component in `src/components/<kebab-name>/` with `<name>.tsx`, `<name>.css` and `<name>.stories.tsx`. Export the component and its types from `src/index.ts`.
+- Wrap one React Aria Components primitive, derive the props type from it, and document custom props with JSDoc.
+- Plain CSS, one file per component. Classes are `.tritium-<component>`, `--variant`, `--size-*` and `__part`. State styles key off React Aria data attributes such as `[data-hovered]` and `[data-focus-visible]`.
+- Values come from Bezel tokens. Component-local values are custom properties named `--tritium-<component>-*`.
+- Shared styles for field parts (label, description, error) live in `src/components/_shared/field.css`.
+- Stories are the tests (`Components/<Name>`, autodocs, Default plus state stories).
+
+## Token wishlist
+
+We are not adding new Bezel tokens yet. When a component needs a value that has no token, it defines a local `--tritium-<component>-*` custom property (or a literal) instead, and the value is recorded here so the tokens can be created later. Add a row whenever you do this.
+
+| Category | Suggested token | Value used | Where |
+|---|---|---|---|
+| Motion / duration | `--duration-spinner` | `0.7s` (`2s` with reduced motion) | `spinner.css` (`--tritium-spinner-duration`) |
+| Motion / easing | `--ease-linear` | `linear` | `spinner.css` |
+| Color | `--accent-active` (or a neutral step alias) | `var(--neutral-800)` | `button.css` outline and ghost pressed background |

@@ -1,5 +1,6 @@
 import type { ComponentProps, ReactNode } from 'react';
 import { Button as AriaButton, composeRenderProps } from 'react-aria-components';
+import { Spinner } from '../spinner/spinner';
 import './button.css';
 
 export type ButtonVariant =
@@ -52,7 +53,7 @@ export function Button({
       // While pending, a spinner takes the place of the start icon (or of the icon in an
       // icon-only button). The label stays so the width doesn't jump.
       children={composeRenderProps(children, (children, { isPending }) => {
-        const spinner = <span className="tritium-button__spinner" aria-hidden="true" />;
+        const spinner = <Spinner label={null} />;
         if (isIconOnly) return isPending ? spinner : children;
         return (
           <>

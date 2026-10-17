@@ -166,26 +166,3 @@
 .tritium-button[data-pending] {
   cursor: progress;
 }
-
-.tritium-button__spinner {
-  box-sizing: border-box;
-  flex: none;
-  width: 1em;
-  height: 1em;
-  border: var(--border-2) solid currentColor;
-  border-inline-end-color: transparent;
-  border-radius: 50%;
-  animation: tritium-button-spin 0.7s linear infinite;
-}
-
-@keyframes tritium-button-spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .tritium-button__spinner {
-    animation-duration: 2s;
-  }
-}
