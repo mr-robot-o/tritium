@@ -1,0 +1,70 @@
+.tritium-alert {
+  --tritium-alert-accent: var(--foreground);
+
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--size-3);
+  padding: var(--size-3) var(--size-4);
+  border: var(--border-default) solid var(--tritium-alert-border, var(--border));
+  border-radius: var(--radius-lg);
+  background: var(--card);
+  color: var(--card-foreground);
+  font-family: var(--typography-xl-font-family);
+  font-size: var(--typography-xl-font-size);
+  font-weight: var(--typography-xl-font-weight);
+  line-height: var(--typography-xl-line-height);
+  letter-spacing: var(--typography-xl-letter-spacing);
+}
+
+.tritium-alert__icon {
+  display: inline-flex;
+  flex: none;
+  color: var(--tritium-alert-accent);
+}
+
+.tritium-alert__icon > svg {
+  width: 1.25em;
+  height: 1.25em;
+}
+
+.tritium-alert__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--size-1);
+  min-width: 0;
+}
+
+.tritium-alert__title {
+  font-weight: var(--font-weight-semi-bold);
+}
+
+.tritium-alert__description {
+  color: var(--muted-foreground);
+  font-size: var(--typography-lg-font-size);
+  line-height: var(--typography-lg-line-height);
+  letter-spacing: var(--typography-lg-letter-spacing);
+}
+
+/* Variants only color the border and the icon, so the text keeps its contrast. */
+
+.tritium-alert--destructive {
+  --tritium-alert-accent: var(--destructive);
+  --tritium-alert-border: var(--destructive);
+}
+
+.tritium-alert--info {
+  --tritium-alert-accent: var(--info);
+  --tritium-alert-border: var(--info);
+}
+
+.tritium-alert--success {
+  --tritium-alert-accent: var(--success);
+  --tritium-alert-border: var(--success);
+}
+
+.tritium-alert--warning {
+  --tritium-alert-accent: var(--warning);
+  --tritium-alert-border: var(--warning);
+}

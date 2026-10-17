@@ -1,5 +1,7 @@
-import type { ComponentPropsWithRef, MouseEvent, ReactNode } from 'react';
+import { useContext, type ComponentPropsWithRef, type ReactNode } from 'react';
 import { Input as AriaInput, composeRenderProps } from 'react-aria-components';
+import { focusInput } from './focus-input';
+import { InputGroupContext } from './input-group-context';
 import './input.css';
 
 export type InputSize = 'sm' | 'default' | 'lg';
@@ -21,15 +23,6 @@ export type InputProps = Omit<ComponentPropsWithRef<typeof AriaInput>, 'size'> &
   endContent?: ReactNode;
 };
 
-// Clicking the padding or a non-interactive start or end content should focus the input,
-// the way clicking inside a plain input does.
-function focusInput(event: MouseEvent<HTMLDivElement>) {
-  const target = event.target as HTMLElement;
-  if (target instanceof HTMLInputElement || target.closest('button, a, [role="button"]')) return;
-  event.preventDefault();
-  event.currentTarget.querySelector('input')?.focus();
-}
-
 export function Input({
   className,
   size = 'default',
@@ -40,11 +33,13 @@ export function Input({
   endContent,
   ...props
 }: InputProps) {
+  // Inside an InputGroup the group draws the box, so the input is always the bare, grouped kind.
+  const inGroup = useContext(InputGroupContext);
   const hasContent = startContent != null || endContent != null;
   const base = [
     'tritium-input',
     `tritium-input--size-${size}`,
-    hasContent && 'tritium-input--grouped',
+    (hasContent || inGroup) && 'tritium-input--grouped',
   ]
     .filter(Boolean)
     .join(' ');
