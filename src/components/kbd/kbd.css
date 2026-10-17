@@ -1,0 +1,28 @@
+.tritium-kbd {
+  --tritium-kbd-bg: var(--muted);
+  --tritium-kbd-fg: var(--muted-foreground);
+  --tritium-kbd-height: var(--size-5);
+
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--tritium-kbd-height);
+  height: var(--tritium-kbd-height);
+  padding: var(--size-0) var(--size-1);
+  border-radius: var(--radius-sm);
+  background: var(--tritium-kbd-bg);
+  color: var(--tritium-kbd-fg);
+  font-family: var(--font-sans);
+  font-size: var(--typography-lg-font-size);
+  font-weight: var(--font-weight-semi-bold);
+  line-height: 1;
+  user-select: none;
+}
+
+/* Keys grouped in a row, for example ⌘ + K. */
+.tritium-kbd-group {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--size-1);
+}

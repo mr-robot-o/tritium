@@ -1,0 +1,31 @@
+.tritium-tooltip {
+  --tritium-overlay-duration: 0.15s;
+
+  box-sizing: border-box;
+  max-width: var(--size-64);
+  padding: var(--size-1-5) var(--size-3);
+  border-radius: var(--radius-md);
+  background: var(--foreground);
+  color: var(--background);
+  font-family: var(--typography-lg-font-family);
+  font-size: var(--typography-lg-font-size);
+  font-weight: var(--typography-lg-font-weight);
+  line-height: var(--typography-lg-line-height);
+  letter-spacing: var(--typography-lg-letter-spacing);
+  text-wrap: balance;
+}
+
+.tritium-tooltip[data-entering] {
+  animation: tritium-fade-in var(--tritium-overlay-duration) ease-out;
+}
+
+.tritium-tooltip[data-exiting] {
+  animation: tritium-fade-out var(--tritium-overlay-duration) ease-in forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tritium-tooltip[data-entering],
+  .tritium-tooltip[data-exiting] {
+    animation: none;
+  }
+}

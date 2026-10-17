@@ -1,0 +1,27 @@
+/* The spinner is 1em square and uses currentColor, so it scales with the
+   surrounding text size and color. */
+.tritium-spinner {
+  --tritium-spinner-duration: 0.7s;
+
+  box-sizing: border-box;
+  display: inline-block;
+  flex: none;
+  width: 1em;
+  height: 1em;
+  border: var(--border-2) solid currentColor;
+  border-inline-end-color: transparent;
+  border-radius: 50%;
+  animation: tritium-spinner-spin var(--tritium-spinner-duration) linear infinite;
+}
+
+@keyframes tritium-spinner-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tritium-spinner {
+    --tritium-spinner-duration: 2s;
+  }
+}

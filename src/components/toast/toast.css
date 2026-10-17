@@ -1,0 +1,108 @@
+.tritium-toast-region {
+  --tritium-toast-z: 100;
+  --tritium-toast-duration: 0.2s;
+
+  position: fixed;
+  inset-block-end: var(--size-4);
+  inset-inline-end: var(--size-4);
+  z-index: var(--tritium-toast-z);
+  display: flex;
+  flex-direction: column-reverse;
+  gap: var(--size-2);
+  width: min(var(--size-96), calc(100vw - var(--size-8)));
+  outline: none;
+}
+
+.tritium-toast {
+  --tritium-toast-accent: var(--foreground);
+  --tritium-toast-shadow: 0 var(--size-1) var(--size-3) oklch(0 0 0 / 0.12);
+
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--size-3);
+  padding: var(--size-3) var(--size-3) var(--size-3) var(--size-4);
+  border: var(--border-default) solid var(--tritium-toast-border, var(--border));
+  border-radius: var(--radius-lg);
+  outline: none;
+  background: var(--popover);
+  box-shadow: var(--tritium-toast-shadow);
+  color: var(--popover-foreground);
+  font-family: var(--typography-xl-font-family);
+  font-size: var(--typography-xl-font-size);
+  line-height: var(--typography-xl-line-height);
+  letter-spacing: var(--typography-xl-letter-spacing);
+}
+
+/* Variants only color the border, as in Alert, so the text keeps its contrast. */
+
+.tritium-toast--success {
+  --tritium-toast-border: var(--success);
+}
+
+.tritium-toast--info {
+  --tritium-toast-border: var(--info);
+}
+
+.tritium-toast--warning {
+  --tritium-toast-border: var(--warning);
+}
+
+.tritium-toast--destructive {
+  --tritium-toast-border: var(--destructive);
+}
+
+.tritium-toast[data-focus-visible] {
+  outline: var(--border-2) solid var(--ring);
+  outline-offset: var(--size-0-5);
+}
+
+.tritium-toast__content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--size-1);
+  min-width: 0;
+}
+
+.tritium-toast__title {
+  font-weight: var(--font-weight-semi-bold);
+}
+
+.tritium-toast__description {
+  color: var(--muted-foreground);
+  font-size: var(--typography-lg-font-size);
+  line-height: var(--typography-lg-line-height);
+  letter-spacing: var(--typography-lg-letter-spacing);
+}
+
+/* Animation. React Aria sets data-animation on each toast. */
+
+.tritium-toast[data-animation='entering'] {
+  animation: tritium-toast-in var(--tritium-toast-duration) ease-out;
+}
+
+.tritium-toast[data-animation='exiting'] {
+  animation: tritium-toast-out var(--tritium-toast-duration) ease-in forwards;
+}
+
+@keyframes tritium-toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(var(--size-4));
+  }
+}
+
+@keyframes tritium-toast-out {
+  to {
+    opacity: 0;
+    transform: translateX(var(--size-4));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tritium-toast[data-animation='entering'],
+  .tritium-toast[data-animation='exiting'] {
+    animation: none;
+  }
+}

@@ -1,0 +1,38 @@
+/* The toggles in a group are joined into one segmented control: inner corners are
+   square and neighboring borders overlap so they don't double up. */
+.tritium-toggle-group {
+  display: inline-flex;
+}
+
+.tritium-toggle-group[data-orientation='vertical'] {
+  flex-direction: column;
+}
+
+.tritium-toggle-group .tritium-toggle:focus-visible,
+.tritium-toggle-group .tritium-toggle[data-focus-visible],
+.tritium-toggle-group .tritium-toggle[data-selected] {
+  position: relative;
+  z-index: 1;
+}
+
+.tritium-toggle-group[data-orientation='horizontal'] .tritium-toggle:not(:first-child) {
+  margin-inline-start: calc(-1 * var(--border-default));
+  border-start-start-radius: 0;
+  border-end-start-radius: 0;
+}
+
+.tritium-toggle-group[data-orientation='horizontal'] .tritium-toggle:not(:last-child) {
+  border-start-end-radius: 0;
+  border-end-end-radius: 0;
+}
+
+.tritium-toggle-group[data-orientation='vertical'] .tritium-toggle:not(:first-child) {
+  margin-block-start: calc(-1 * var(--border-default));
+  border-start-start-radius: 0;
+  border-start-end-radius: 0;
+}
+
+.tritium-toggle-group[data-orientation='vertical'] .tritium-toggle:not(:last-child) {
+  border-end-start-radius: 0;
+  border-end-end-radius: 0;
+}

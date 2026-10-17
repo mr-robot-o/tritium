@@ -1,0 +1,85 @@
+.tritium-typography {
+  --tritium-typography-fg: var(--foreground);
+
+  margin: var(--size-0);
+  color: var(--tritium-typography-fg);
+  font-family: var(--typography-xl-font-family);
+  font-size: var(--typography-xl-font-size);
+  font-weight: var(--typography-xl-font-weight);
+  line-height: var(--typography-xl-line-height);
+  letter-spacing: var(--typography-xl-letter-spacing);
+}
+
+/* Headings */
+
+.tritium-typography--h1 {
+  font-size: var(--typography-5xl-font-size);
+  font-weight: var(--font-weight-semi-bold);
+  line-height: var(--typography-5xl-line-height);
+  letter-spacing: var(--typography-5xl-letter-spacing);
+}
+
+.tritium-typography--h2 {
+  font-size: var(--typography-4xl-font-size);
+  font-weight: var(--font-weight-semi-bold);
+  line-height: var(--typography-4xl-line-height);
+  letter-spacing: var(--typography-4xl-letter-spacing);
+}
+
+.tritium-typography--h3 {
+  font-size: var(--typography-3xl-font-size);
+  font-weight: var(--font-weight-semi-bold);
+  line-height: var(--typography-3xl-line-height);
+  letter-spacing: var(--typography-3xl-letter-spacing);
+}
+
+.tritium-typography--h4 {
+  font-size: var(--typography-2xl-font-size);
+  font-weight: var(--font-weight-semi-bold);
+  line-height: var(--typography-2xl-line-height);
+  letter-spacing: var(--typography-2xl-letter-spacing);
+}
+
+/* Body */
+
+.tritium-typography--lead {
+  --tritium-typography-fg: var(--muted-foreground);
+
+  font-size: var(--typography-2xl-font-size);
+  line-height: var(--typography-2xl-line-height);
+  letter-spacing: var(--typography-2xl-letter-spacing);
+}
+
+.tritium-typography--large {
+  font-weight: var(--font-weight-semi-bold);
+}
+
+.tritium-typography--small,
+.tritium-typography--muted {
+  font-size: var(--typography-lg-font-size);
+  line-height: var(--typography-lg-line-height);
+  letter-spacing: var(--typography-lg-letter-spacing);
+}
+
+.tritium-typography--small {
+  font-weight: var(--font-weight-semi-bold);
+}
+
+.tritium-typography--muted {
+  --tritium-typography-fg: var(--muted-foreground);
+}
+
+.tritium-typography--blockquote {
+  padding-inline-start: var(--size-4);
+  border-inline-start: var(--border-2) solid var(--border);
+  font-style: italic;
+}
+
+.tritium-typography--code {
+  padding: var(--size-0-5) var(--size-1-5);
+  border-radius: var(--radius-sm);
+  background: var(--muted);
+  font-family: var(--font-mono);
+  font-size: var(--typography-lg-font-size);
+  font-weight: var(--font-weight-semi-bold);
+}

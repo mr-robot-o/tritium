@@ -1,0 +1,149 @@
+.tritium-slider {
+  --tritium-slider-track-size: var(--size-1-5);
+  --tritium-slider-thumb-size: var(--size-4);
+  --tritium-slider-track: var(--muted);
+  --tritium-slider-fill: var(--primary);
+  --tritium-slider-thumb-bg: var(--background);
+  --tritium-slider-thumb-border: var(--primary);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-2);
+  width: 100%;
+  font-family: var(--typography-xl-font-family);
+  touch-action: none;
+}
+
+.tritium-slider[data-orientation='vertical'] {
+  align-items: center;
+  width: auto;
+  height: 100%;
+  min-height: var(--size-32);
+}
+
+.tritium-slider__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--size-2);
+  font-size: var(--typography-lg-font-size);
+  line-height: var(--typography-lg-line-height);
+  letter-spacing: var(--typography-lg-letter-spacing);
+}
+
+.tritium-slider__label {
+  color: var(--foreground);
+  font-weight: var(--font-weight-semi-bold);
+}
+
+.tritium-slider__output {
+  margin-inline-start: auto;
+  color: var(--muted-foreground);
+  font-variant-numeric: tabular-nums;
+}
+
+/* The track is as tall as the thumb so the whole row is a drag target. */
+.tritium-slider__track {
+  position: relative;
+  flex: 1;
+}
+
+.tritium-slider__track[data-orientation='horizontal'] {
+  width: 100%;
+  height: var(--tritium-slider-thumb-size);
+}
+
+.tritium-slider__track[data-orientation='vertical'] {
+  width: var(--tritium-slider-thumb-size);
+  height: 100%;
+}
+
+/* The groove sits centered behind the fill and thumbs. */
+.tritium-slider__track::before {
+  content: '';
+  position: absolute;
+  border-radius: var(--radius-4xl);
+  background: var(--tritium-slider-track);
+}
+
+.tritium-slider__track[data-orientation='horizontal']::before {
+  inset-inline: 0;
+  top: 50%;
+  height: var(--tritium-slider-track-size);
+  transform: translateY(-50%);
+}
+
+.tritium-slider__track[data-orientation='vertical']::before {
+  inset-block: 0;
+  left: 50%;
+  width: var(--tritium-slider-track-size);
+  transform: translateX(-50%);
+}
+
+.tritium-slider__fill {
+  position: absolute;
+  border-radius: var(--radius-4xl);
+  background: var(--tritium-slider-fill);
+}
+
+.tritium-slider[data-orientation='horizontal'] .tritium-slider__fill {
+  top: 50%;
+  height: var(--tritium-slider-track-size);
+  transform: translateY(-50%);
+}
+
+.tritium-slider[data-orientation='vertical'] .tritium-slider__fill {
+  left: 50%;
+  width: var(--tritium-slider-track-size);
+  transform: translateX(-50%);
+}
+
+/* React Aria positions the thumb along the track and centers it with a transform;
+   the cross-axis offset is ours. */
+.tritium-slider__thumb {
+  box-sizing: border-box;
+  width: var(--tritium-slider-thumb-size);
+  height: var(--tritium-slider-thumb-size);
+  border: var(--border-2) solid var(--tritium-slider-thumb-border);
+  border-radius: 50%;
+  background: var(--tritium-slider-thumb-bg);
+  outline: none;
+  cursor: grab;
+}
+
+.tritium-slider__thumb[data-orientation='horizontal'] {
+  top: 50%;
+}
+
+.tritium-slider__thumb[data-orientation='vertical'] {
+  left: 50%;
+}
+
+/* States */
+
+.tritium-slider__thumb[data-hovered],
+.tritium-slider__thumb[data-dragging] {
+  --tritium-slider-thumb-border: var(--primary-hover);
+}
+
+.tritium-slider__thumb[data-dragging] {
+  cursor: grabbing;
+}
+
+.tritium-slider__thumb[data-focus-visible] {
+  outline: var(--border-2) solid var(--ring);
+  outline-offset: var(--size-0-5);
+}
+
+.tritium-slider[data-disabled] {
+  --tritium-slider-fill: var(--muted-foreground);
+  --tritium-slider-thumb-border: var(--muted-foreground);
+}
+
+.tritium-slider[data-disabled] .tritium-slider__thumb {
+  cursor: not-allowed;
+}
+
+.tritium-slider[data-disabled] .tritium-slider__label {
+  color: var(--muted-foreground);
+}

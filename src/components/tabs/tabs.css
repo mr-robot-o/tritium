@@ -1,0 +1,150 @@
+.tritium-tabs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-2);
+  font-family: var(--typography-xl-font-family);
+}
+
+.tritium-tabs[data-orientation='vertical'] {
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.tritium-tabs__list {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: var(--size-1);
+}
+
+.tritium-tabs[data-orientation='vertical'] .tritium-tabs__list {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.tritium-tabs__tab {
+  --tritium-tabs-tab-bg: transparent;
+  --tritium-tabs-tab-fg: var(--muted-foreground);
+  --tritium-tabs-tab-border: transparent;
+
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--size-2);
+  min-height: var(--size-8);
+  padding: var(--size-0) var(--size-3);
+  border: var(--border-default) solid var(--tritium-tabs-tab-border);
+  border-radius: var(--radius-md);
+  outline: none;
+  background: var(--tritium-tabs-tab-bg);
+  color: var(--tritium-tabs-tab-fg);
+  font-size: var(--typography-xl-font-size);
+  font-weight: var(--font-weight-semi-bold);
+  line-height: var(--typography-xl-line-height);
+  letter-spacing: var(--typography-xl-letter-spacing);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.tritium-tabs__tab > svg {
+  flex: none;
+  width: 1.25em;
+  height: 1.25em;
+}
+
+.tritium-tabs__tab[data-hovered]:not([data-disabled], [data-selected]) {
+  --tritium-tabs-tab-fg: var(--foreground);
+}
+
+.tritium-tabs__tab[data-selected] {
+  --tritium-tabs-tab-fg: var(--foreground);
+}
+
+.tritium-tabs__tab[data-focus-visible] {
+  outline: var(--border-2) solid var(--ring);
+  outline-offset: var(--size-0-5);
+}
+
+.tritium-tabs__tab[data-disabled] {
+  --tritium-tabs-tab-fg: var(--muted-foreground);
+
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.tritium-tabs__panel {
+  border-radius: var(--radius-md);
+  outline: none;
+  color: var(--foreground);
+  font-size: var(--typography-xl-font-size);
+  line-height: var(--typography-xl-line-height);
+}
+
+.tritium-tabs__panel[data-focus-visible] {
+  outline: var(--border-2) solid var(--ring);
+  outline-offset: var(--size-0-5);
+}
+
+/* Variant: default. A muted track with the selected tab raised onto the page color. */
+
+.tritium-tabs--default .tritium-tabs__list {
+  padding: var(--size-1);
+  border-radius: var(--radius-lg);
+  background: var(--muted);
+}
+
+.tritium-tabs--default .tritium-tabs__tab[data-selected] {
+  --tritium-tabs-tab-bg: var(--background);
+  --tritium-tabs-tab-border: var(--border);
+}
+
+/* Variant: line. Tabs sit on a rule, and the selected one gets an indicator. */
+
+.tritium-tabs--line .tritium-tabs__list {
+  gap: var(--size-4);
+  align-self: stretch;
+  border-bottom: var(--border-default) solid var(--border);
+}
+
+.tritium-tabs--line[data-orientation='vertical'] .tritium-tabs__list {
+  gap: var(--size-1);
+  align-self: auto;
+  border-bottom: 0;
+  border-inline-end: var(--border-default) solid var(--border);
+}
+
+.tritium-tabs--line .tritium-tabs__tab {
+  position: relative;
+  border-width: var(--border-0);
+  border-radius: var(--radius-sm);
+  margin-bottom: calc(-1 * var(--border-default));
+}
+
+/* The indicator is a pseudo-element rather than a box-shadow, so it stays a straight
+   line instead of following the tab's rounded corners. It overlaps the list's rule. */
+.tritium-tabs--line .tritium-tabs__tab::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: var(--border-2);
+  background: var(--tritium-tabs-indicator, transparent);
+}
+
+.tritium-tabs--line .tritium-tabs__tab[data-selected] {
+  --tritium-tabs-indicator: var(--primary);
+}
+
+.tritium-tabs--line[data-orientation='vertical'] .tritium-tabs__tab {
+  justify-content: flex-start;
+  margin-bottom: 0;
+  margin-inline-end: calc(-1 * var(--border-default));
+}
+
+.tritium-tabs--line[data-orientation='vertical'] .tritium-tabs__tab::after {
+  inset-block: 0;
+  inset-inline: auto 0;
+  width: var(--border-2);
+  height: auto;
+}

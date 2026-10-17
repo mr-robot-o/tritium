@@ -1,0 +1,35 @@
+.tritium-breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--size-1-5);
+  margin: var(--size-0);
+  padding: var(--size-0);
+  color: var(--muted-foreground);
+  font-family: var(--typography-xl-font-family);
+  font-size: var(--typography-xl-font-size);
+  line-height: var(--typography-xl-line-height);
+  letter-spacing: var(--typography-xl-letter-spacing);
+  list-style: none;
+}
+
+.tritium-breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--size-1-5);
+}
+
+/* The separator is decorative; the empty alternative text keeps it out of the
+   accessible name. */
+.tritium-breadcrumb:not(:last-child)::after {
+  content: '/' / '';
+  color: var(--muted-foreground);
+}
+
+/* React Aria marks the last crumb as the current page and disables its link. */
+.tritium-breadcrumb .tritium-link[aria-current='page'] {
+  --tritium-link-fg: var(--foreground);
+
+  font-weight: var(--font-weight-semi-bold);
+  cursor: default;
+}

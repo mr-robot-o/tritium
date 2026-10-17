@@ -1,0 +1,87 @@
+.tritium-native-select {
+  --tritium-native-select-height: var(--size-10);
+  --tritium-native-select-padding-x: var(--size-3);
+  --tritium-native-select-bg: var(--background);
+  --tritium-native-select-fg: var(--foreground);
+  --tritium-native-select-border: var(--input);
+
+  position: relative;
+  display: inline-flex;
+  width: 100%;
+}
+
+.tritium-native-select__control {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: var(--tritium-native-select-height);
+  /* Leaves room for the chevron on the end side. */
+  padding-block: var(--size-0);
+  padding-inline: var(--tritium-native-select-padding-x) var(--size-9);
+  border: var(--border-default) solid var(--tritium-native-select-border);
+  border-radius: var(--radius-md);
+  outline: none;
+  appearance: none;
+  background: var(--tritium-native-select-bg);
+  color: var(--tritium-native-select-fg);
+  font-family: var(--typography-xl-font-family);
+  font-size: var(--typography-xl-font-size);
+  font-weight: var(--typography-xl-font-weight);
+  line-height: var(--typography-xl-line-height);
+  letter-spacing: var(--typography-xl-letter-spacing);
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.tritium-native-select__chevron {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-end: var(--tritium-native-select-padding-x);
+  width: 1.25em;
+  height: 100%;
+  color: var(--muted-foreground);
+  font-size: var(--typography-xl-font-size);
+  pointer-events: none;
+}
+
+/* Sizes (default is set above). Heights match Button and Input. */
+
+.tritium-native-select--size-sm {
+  --tritium-native-select-height: var(--size-8);
+  --tritium-native-select-padding-x: var(--size-2-5);
+}
+
+.tritium-native-select--size-sm .tritium-native-select__control,
+.tritium-native-select--size-sm .tritium-native-select__chevron {
+  font-size: var(--typography-lg-font-size);
+  font-weight: var(--typography-lg-font-weight);
+  line-height: var(--typography-lg-line-height);
+  letter-spacing: var(--typography-lg-letter-spacing);
+}
+
+.tritium-native-select--size-lg {
+  --tritium-native-select-height: var(--size-12);
+  --tritium-native-select-padding-x: var(--size-4);
+}
+
+/* States. A native select has no React Aria data attributes, so these use the
+   standard pseudo-classes and attributes. */
+
+.tritium-native-select__control:hover:not(:disabled) {
+  --tritium-native-select-bg: var(--accent);
+}
+
+.tritium-native-select__control:focus-visible {
+  outline: var(--border-2) solid var(--ring);
+  outline-offset: var(--size-0-5);
+}
+
+.tritium-native-select__control[aria-invalid='true'] {
+  --tritium-native-select-border: var(--destructive);
+}
+
+.tritium-native-select__control:disabled {
+  --tritium-native-select-bg: var(--muted);
+  --tritium-native-select-fg: var(--muted-foreground);
+
+  cursor: not-allowed;
+}

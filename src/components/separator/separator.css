@@ -1,0 +1,17 @@
+.tritium-separator {
+  --tritium-separator-color: var(--border);
+
+  flex: none;
+  align-self: stretch;
+  background: var(--tritium-separator-color);
+}
+
+.tritium-separator--horizontal {
+  width: 100%;
+  height: var(--border-default);
+}
+
+.tritium-separator--vertical {
+  width: var(--border-default);
+  height: auto;
+}

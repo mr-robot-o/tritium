@@ -1,0 +1,29 @@
+.tritium-dialog__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-1-5);
+}
+
+.tritium-dialog__title {
+  margin: var(--size-0);
+  font-size: var(--typography-2xl-font-size);
+  font-weight: var(--font-weight-semi-bold);
+  line-height: var(--typography-2xl-line-height);
+  letter-spacing: var(--typography-2xl-letter-spacing);
+}
+
+.tritium-dialog__description {
+  margin: var(--size-0);
+  color: var(--muted-foreground);
+  font-size: var(--typography-lg-font-size);
+  line-height: var(--typography-lg-line-height);
+  letter-spacing: var(--typography-lg-letter-spacing);
+}
+
+.tritium-dialog__footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--size-2);
+}

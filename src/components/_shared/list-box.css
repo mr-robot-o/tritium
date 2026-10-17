@@ -1,0 +1,56 @@
+/* A list of options inside a popover. Shared by Select and Combobox, and reusable by menus. */
+.tritium-list-box {
+  box-sizing: border-box;
+  max-height: inherit;
+  padding: var(--size-1);
+  overflow: auto;
+  outline: none;
+}
+
+.tritium-list-box__item {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--size-2);
+  padding: var(--size-1-5) var(--size-2);
+  border-radius: var(--radius-sm);
+  outline: none;
+  color: var(--popover-foreground);
+  cursor: default;
+}
+
+.tritium-list-box__item-text {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tritium-list-box__item-check {
+  flex: none;
+  width: 1.25em;
+  height: 1.25em;
+}
+
+/* data-focused covers both pointer hover and keyboard focus inside the list. */
+.tritium-list-box__item[data-focused]:not([data-disabled]),
+.tritium-list-box__item[data-hovered]:not([data-disabled]) {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.tritium-list-box__item[data-selected] {
+  font-weight: var(--font-weight-semi-bold);
+}
+
+.tritium-list-box__item[data-disabled] {
+  color: var(--muted-foreground);
+  cursor: not-allowed;
+}
+
+.tritium-list-box__empty {
+  padding: var(--size-2);
+  color: var(--muted-foreground);
+  text-align: center;
+}

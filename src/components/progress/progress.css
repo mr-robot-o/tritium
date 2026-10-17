@@ -1,0 +1,86 @@
+/* Also used by Meter, which sets --tritium-progress-fill for its variants. */
+
+.tritium-progress {
+  --tritium-progress-height: var(--size-2);
+  --tritium-progress-track: var(--muted);
+  --tritium-progress-fill: var(--primary);
+  --tritium-progress-duration: 1.5s;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-1-5);
+  width: 100%;
+  font-family: var(--typography-xl-font-family);
+}
+
+.tritium-progress__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--size-2);
+  font-size: var(--typography-lg-font-size);
+  line-height: var(--typography-lg-line-height);
+  letter-spacing: var(--typography-lg-letter-spacing);
+}
+
+.tritium-progress__label {
+  color: var(--foreground);
+  font-weight: var(--font-weight-semi-bold);
+}
+
+.tritium-progress__value {
+  margin-inline-start: auto;
+  color: var(--muted-foreground);
+  font-weight: var(--typography-lg-font-weight);
+  font-variant-numeric: tabular-nums;
+}
+
+.tritium-progress__track {
+  position: relative;
+  height: var(--tritium-progress-height);
+  overflow: hidden;
+  border-radius: var(--radius-4xl);
+  background: var(--tritium-progress-track);
+}
+
+.tritium-progress__fill {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--tritium-progress-fill);
+  transition: width var(--tritium-progress-duration-change, 0.2s) ease-out;
+}
+
+/* Sizes (default is set on .tritium-progress) */
+
+.tritium-progress--size-sm {
+  --tritium-progress-height: var(--size-1);
+}
+
+.tritium-progress--size-lg {
+  --tritium-progress-height: var(--size-3);
+}
+
+/* Indeterminate: a segment sweeps across the track. React Aria sets no attribute for
+   this, but it removes aria-valuenow, which is what we key off. */
+.tritium-progress:not([aria-valuenow]) .tritium-progress__fill {
+  width: 40%;
+  transition: none;
+  animation: tritium-progress-sweep var(--tritium-progress-duration) ease-in-out infinite;
+}
+
+@keyframes tritium-progress-sweep {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(250%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tritium-progress {
+    --tritium-progress-duration: 4s;
+    --tritium-progress-duration-change: 0s;
+  }
+}

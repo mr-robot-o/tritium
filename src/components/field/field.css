@@ -1,0 +1,34 @@
+/* Base .tritium-field, __label, __description and __error styles are in _shared/field.css. */
+
+.tritium-field--horizontal {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--size-3);
+}
+
+.tritium-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-6);
+}
+
+.tritium-field-set {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-4);
+  min-width: 0;
+  margin: var(--size-0);
+  padding: var(--size-0);
+  border: 0;
+}
+
+.tritium-field-set__legend {
+  padding: var(--size-0);
+  margin-block-end: var(--size-1);
+  color: var(--foreground);
+  font-family: var(--typography-xl-font-family);
+  font-size: var(--typography-xl-font-size);
+  font-weight: var(--font-weight-semi-bold);
+  line-height: var(--typography-xl-line-height);
+  letter-spacing: var(--typography-xl-letter-spacing);
+}

@@ -9,7 +9,7 @@ import {
   type ValidationResult,
 } from 'react-aria-components';
 import { Input, type InputSize } from '../input/input';
-import './text-field.css';
+import '../_shared/field.css';
 
 export type TextFieldProps = Omit<AriaTextFieldProps, 'children'> & {
   /** The visible label. Without one, pass an `aria-label`. */
