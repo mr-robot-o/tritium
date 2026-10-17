@@ -49,3 +49,5 @@ We are not adding new Bezel tokens yet. When a component needs a value that has 
 | Motion / easing | `--ease-out` | `ease-out` | `switch.css` |
 | Color | `--input-hover` (or neutral step alias) | `var(--neutral-600)` | `switch.css` unselected track hover |
 | Size | `--size-textarea-min-height` | `var(--size-16)` (64px) | `textarea.css` (`--tritium-textarea-min-height`) |
+| Motion / duration | `--duration-indeterminate` | `1.5s` (`4s` with reduced motion) | `progress.css` (`--tritium-progress-duration`) |
+| Motion / duration | `--duration-quick` | `0.2s` | `progress.css` fill width transition |

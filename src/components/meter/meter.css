@@ -1,0 +1,11 @@
+.tritium-meter--success {
+  --tritium-progress-fill: var(--success);
+}
+
+.tritium-meter--warning {
+  --tritium-progress-fill: var(--warning);
+}
+
+.tritium-meter--destructive {
+  --tritium-progress-fill: var(--destructive);
+}

@@ -46,6 +46,12 @@ export type { KbdProps } from './components/kbd/kbd';
 export { Label } from './components/label/label';
 export type { LabelProps } from './components/label/label';
 
+export { Meter } from './components/meter/meter';
+export type { MeterProps, MeterVariant } from './components/meter/meter';
+
+export { Progress } from './components/progress/progress';
+export type { ProgressProps, ProgressSize } from './components/progress/progress';
+
 export { Radio, RadioGroup } from './components/radio-group/radio-group';
 export type { RadioGroupProps, RadioProps } from './components/radio-group/radio-group';
 
@@ -57,6 +63,9 @@ export type { SeparatorProps } from './components/separator/separator';
 
 export { Skeleton } from './components/skeleton/skeleton';
 export type { SkeletonProps, SkeletonShape } from './components/skeleton/skeleton';
+
+export { Slider } from './components/slider/slider';
+export type { SliderProps } from './components/slider/slider';
 
 export { Spinner } from './components/spinner/spinner';
 export type { SpinnerProps } from './components/spinner/spinner';
