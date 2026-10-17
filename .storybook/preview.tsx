@@ -1,11 +1,24 @@
 import type { Preview } from '@storybook/react-vite'
 import { loadGoogleFonts, startLivePreviewReceiver } from '@bezel-labs/crystal'
+import { resolveInitialContext, DEFAULT_CONTEXT } from '@bezel-labs/loupe'
 import '../src/bezel/variables.css'
 import { FONTS } from '../src/bezel/fonts'
+import { CONTEXTS } from '../src/bezel/contexts'
 
 // Load the fonts Bezel generated (src/bezel/fonts.ts). Re-runs on HMR when `npm run tokens`
 // rewrites that file; the crystal receiver below also handles live font changes from Bezel.
 loadGoogleFonts(FONTS.map(({ family, weights }) => ({ family, weights: [...weights] })))
+
+// Each Bezel context maps to a class on <html> (variables.css); "default" is plain :root.
+const applyContext = (context: string) => {
+  const root = document.documentElement
+  CONTEXTS.forEach((name) => name !== DEFAULT_CONTEXT && root.classList.toggle(name, name === context))
+  try {
+    window.localStorage.setItem('radium-context', context) // key loupe reads on next load
+  } catch {
+    // storage unavailable (private mode, sandboxed iframe) — selection just won't persist
+  }
+}
 
 // Receives live token CSS from Bezel (relayed by .storybook/manager.ts).
 // The manager re-posts each message to this iframe, so the message arrives with the
@@ -35,6 +48,25 @@ const categoryOrder = categoryRules.map(([category]) => category);
 const rankOf = (category?: string) => (category ? categoryOrder.indexOf(category) : -1);
 
 const preview: Preview = {
+  // URL ?context= / ?globals=context:<name> → localStorage → "default".
+  initialGlobals: { context: resolveInitialContext({ contexts: [...CONTEXTS] }) },
+  globalTypes: {
+    context: {
+      description: 'Bezel context',
+      toolbar: {
+        title: 'Context',
+        icon: 'paintbrush',
+        items: CONTEXTS.map((value) => ({ value, title: value })),
+        dynamicTitle: true,
+      },
+    },
+  },
+  decorators: [
+    (Story, { globals }) => {
+      applyContext(globals.context ?? DEFAULT_CONTEXT)
+      return <Story />
+    },
+  ],
   argTypesEnhancers: [
     ({ argTypes }) =>
       Object.fromEntries(
