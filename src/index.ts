@@ -34,6 +34,10 @@ export type { CardProps } from './components/card/card';
 export { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from './components/carousel/carousel';
 export type { CarouselProps } from './components/carousel/carousel';
 
+export { ChartContainer, ChartLegend, ChartLegendContent, ChartTooltip, ChartTooltipContent } from './components/chart/chart';
+export type { ChartContainerProps, ChartLegendContentProps, ChartTooltipContentProps } from './components/chart/chart';
+export type { ChartConfig, ChartConfigItem } from './components/chart/chart-context';
+
 export { Checkbox } from './components/checkbox/checkbox';
 export type { CheckboxProps } from './components/checkbox/checkbox';
 

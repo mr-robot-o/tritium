@@ -1,0 +1,189 @@
+.tritium-chart {
+  /* Series colors, used in order by series that have no `color` in the chart config. */
+  --tritium-chart-color-1: var(--primary);
+  --tritium-chart-color-2: var(--success);
+  --tritium-chart-color-3: var(--info);
+  --tritium-chart-color-4: var(--secondary);
+  --tritium-chart-color-5: var(--warning);
+  --tritium-chart-grid: var(--border);
+  --tritium-chart-tick: var(--muted-foreground);
+  --tritium-chart-shadow: 0 var(--size-1) var(--size-3) oklch(0 0 0 / 0.12);
+
+  box-sizing: border-box;
+  width: 100%;
+  min-height: var(--size-48);
+  aspect-ratio: 16 / 9;
+  font-family: var(--typography-lg-font-family);
+  font-size: var(--typography-lg-font-size);
+  line-height: var(--typography-lg-line-height);
+  color: var(--foreground);
+}
+
+.tritium-chart > .recharts-responsive-container {
+  width: 100%;
+  height: 100%;
+}
+
+/* Recharts draws plain SVG, so its own classes are restyled here. */
+.tritium-chart .recharts-surface {
+  overflow: visible;
+}
+
+.tritium-chart .recharts-cartesian-grid line {
+  stroke: var(--tritium-chart-grid);
+}
+
+.tritium-chart .recharts-cartesian-axis-line,
+.tritium-chart .recharts-cartesian-axis-tick-line {
+  stroke: var(--tritium-chart-grid);
+}
+
+.tritium-chart .recharts-cartesian-axis-tick text,
+.tritium-chart .recharts-polar-angle-axis-tick text {
+  fill: var(--tritium-chart-tick);
+}
+
+.tritium-chart .recharts-reference-line line {
+  stroke: var(--tritium-chart-grid);
+}
+
+.tritium-chart .recharts-tooltip-cursor {
+  stroke: var(--tritium-chart-grid);
+}
+
+.tritium-chart .recharts-rectangle.recharts-tooltip-cursor,
+.tritium-chart .recharts-bar-background-rectangle {
+  fill: var(--muted);
+  stroke: none;
+}
+
+.tritium-chart .recharts-sector {
+  stroke: var(--background);
+}
+
+.tritium-chart .recharts-layer:focus-visible,
+.tritium-chart .recharts-surface:focus-visible {
+  outline: var(--border-2) solid var(--ring);
+  outline-offset: var(--size-1);
+}
+
+.tritium-chart .recharts-text.recharts-label {
+  fill: var(--foreground);
+}
+
+/* Tooltip */
+
+.tritium-chart__tooltip {
+  box-sizing: border-box;
+  min-width: var(--size-32);
+  padding: var(--size-2) var(--size-2-5);
+  border: var(--border-default) solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--popover);
+  box-shadow: var(--tritium-chart-shadow);
+  color: var(--popover-foreground);
+  font-family: var(--typography-lg-font-family);
+  font-size: var(--typography-lg-font-size);
+  line-height: var(--typography-lg-line-height);
+}
+
+.tritium-chart__tooltip-label {
+  margin-block-end: var(--size-1-5);
+  font-weight: var(--font-weight-semi-bold);
+}
+
+.tritium-chart__tooltip-items {
+  display: grid;
+  gap: var(--size-1-5);
+}
+
+.tritium-chart__tooltip-item {
+  display: flex;
+  align-items: center;
+  gap: var(--size-2);
+}
+
+.tritium-chart__tooltip-item > svg {
+  flex: none;
+  width: var(--size-3);
+  height: var(--size-3);
+  color: var(--muted-foreground);
+}
+
+.tritium-chart__tooltip-name {
+  color: var(--muted-foreground);
+}
+
+.tritium-chart__tooltip-value {
+  margin-inline-start: auto;
+  padding-inline-start: var(--size-4);
+  font-variant-numeric: tabular-nums;
+  font-weight: var(--font-weight-semi-bold);
+  color: var(--popover-foreground);
+}
+
+/* Indicators */
+
+.tritium-chart__indicator {
+  flex: none;
+  box-sizing: border-box;
+  align-self: stretch;
+  border-radius: var(--radius-sm);
+  --tritium-chart-indicator-color: var(--foreground);
+}
+
+.tritium-chart__indicator--dot {
+  align-self: center;
+  width: var(--size-2-5);
+  height: var(--size-2-5);
+  background: var(--tritium-chart-indicator-color);
+}
+
+.tritium-chart__indicator--line {
+  width: var(--size-1);
+  background: var(--tritium-chart-indicator-color);
+}
+
+.tritium-chart__indicator--dashed {
+  width: 0;
+  border-inline-start: var(--border-2) dashed var(--tritium-chart-indicator-color);
+  background: transparent;
+}
+
+/* Legend */
+
+.tritium-chart__legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--size-4);
+}
+
+.tritium-chart__legend[data-vertical-align='bottom'] {
+  padding-block-start: var(--size-3);
+}
+
+.tritium-chart__legend[data-vertical-align='top'] {
+  padding-block-end: var(--size-3);
+}
+
+.tritium-chart__legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--size-1-5);
+  color: var(--foreground);
+}
+
+.tritium-chart__legend-item > svg {
+  width: var(--size-3);
+  height: var(--size-3);
+  color: var(--muted-foreground);
+}
+
+.tritium-chart__swatch {
+  flex: none;
+  width: var(--size-2);
+  height: var(--size-2);
+  border-radius: var(--radius-sm);
+}

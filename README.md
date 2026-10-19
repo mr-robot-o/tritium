@@ -71,3 +71,5 @@ We are not adding new Bezel tokens yet. When a component needs a value that has 
 | Motion / duration | `--duration-fast` | `0.15s` | `navigation-menu.css` chevron rotation |
 | Spacing | `--gap-carousel` | `var(--size-4)` | `carousel.css` (`--tritium-carousel-gap`) |
 | Z-index | `--z-sticky` | `1` | `resizable.css` grip, `input-otp.css` active slot |
+| Color | `--chart-1` … `--chart-5` (series palette) | `var(--primary)`, `var(--success)`, `var(--info)`, `var(--secondary)`, `var(--warning)` | `chart.css` (`--tritium-chart-color-1` … `-5`) |
+| Shadow | `--shadow-md` (tooltip) | `0 var(--size-1) var(--size-3) oklch(0 0 0 / 0.12)` | `chart.css` (`--tritium-chart-shadow`) |
