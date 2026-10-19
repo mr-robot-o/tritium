@@ -1,0 +1,198 @@
+.tritium-table-container {
+  position: relative;
+  overflow: auto;
+  border: var(--border-default) solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--background);
+}
+
+.tritium-table {
+  --tritium-table-cell-px: var(--size-3);
+  --tritium-table-cell-py: var(--size-2-5);
+  --tritium-table-header-bg: var(--background);
+  --tritium-table-row-hover-bg: var(--muted);
+  --tritium-table-row-selected-bg: var(--accent);
+  --tritium-table-row-stripe-bg: var(--muted);
+  --tritium-table-sticky-z: 1;
+  --tritium-table-resizer-width: var(--size-2);
+
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  color: var(--foreground);
+  font-family: var(--typography-xl-font-family);
+  font-size: var(--typography-xl-font-size);
+  font-weight: var(--typography-xl-font-weight);
+  line-height: var(--typography-xl-line-height);
+  letter-spacing: var(--typography-xl-letter-spacing);
+  text-align: start;
+}
+
+/* Resizing columns need a fixed layout so React Aria's widths are respected. */
+.tritium-table--resizable {
+  table-layout: fixed;
+}
+
+.tritium-table--size-sm {
+  --tritium-table-cell-px: var(--size-2-5);
+  --tritium-table-cell-py: var(--size-1-5);
+}
+
+.tritium-table--size-lg {
+  --tritium-table-cell-px: var(--size-4);
+  --tritium-table-cell-py: var(--size-4);
+}
+
+/* Header */
+
+.tritium-table__column {
+  position: relative;
+  box-sizing: border-box;
+  padding: var(--tritium-table-cell-py) var(--tritium-table-cell-px);
+  border-bottom: var(--border-default) solid var(--border);
+  background: var(--tritium-table-header-bg);
+  color: var(--muted-foreground);
+  font-family: var(--typography-lg-font-family);
+  font-size: var(--typography-lg-font-size);
+  font-weight: 600;
+  line-height: var(--typography-lg-line-height);
+  letter-spacing: var(--typography-lg-letter-spacing);
+  text-align: start;
+  white-space: nowrap;
+  outline: none;
+}
+
+.tritium-table--sticky-header .tritium-table__column {
+  position: sticky;
+  top: 0;
+  z-index: var(--tritium-table-sticky-z);
+}
+
+.tritium-table__column--select {
+  width: var(--size-11);
+  padding-inline-end: 0;
+}
+
+.tritium-table__column-content {
+  display: flex;
+  align-items: center;
+  gap: var(--size-1-5);
+  min-width: 0;
+}
+
+.tritium-table__column-label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tritium-table__sort-icon {
+  display: inline-flex;
+  flex: none;
+  opacity: 0.4;
+}
+
+.tritium-table__sort {
+  width: var(--size-4);
+  height: var(--size-4);
+}
+
+.tritium-table__column[data-hovered] .tritium-table__sort-icon,
+.tritium-table__column[data-focus-visible] .tritium-table__sort-icon {
+  opacity: 0.7;
+}
+
+.tritium-table__sort-icon[data-direction] {
+  opacity: 1;
+  color: var(--foreground);
+}
+
+/* Show only the arrow for the active direction. */
+.tritium-table__sort-icon[data-direction='ascending'] .tritium-table__sort-down,
+.tritium-table__sort-icon[data-direction='descending'] .tritium-table__sort-up {
+  display: none;
+}
+
+.tritium-table__column[data-allows-sorting] {
+  cursor: pointer;
+}
+
+.tritium-table__column[data-focus-visible] {
+  outline: var(--border-2) solid var(--ring);
+  outline-offset: calc(var(--border-2) * -1);
+}
+
+/* Resize handle */
+
+.tritium-table__resizer {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-end: 0;
+  box-sizing: border-box;
+  width: var(--tritium-table-resizer-width);
+  background-clip: content-box;
+  border-inline-end: var(--border-2) solid transparent;
+  cursor: col-resize;
+  touch-action: none;
+}
+
+.tritium-table__resizer[data-resizable-direction='left'] {
+  cursor: w-resize;
+}
+
+.tritium-table__resizer[data-resizable-direction='right'] {
+  cursor: e-resize;
+}
+
+.tritium-table__resizer[data-hovered],
+.tritium-table__resizer[data-resizing],
+.tritium-table__resizer[data-focus-visible] {
+  border-inline-end-color: var(--ring);
+}
+
+/* Rows and cells */
+
+.tritium-table__row {
+  outline: none;
+}
+
+.tritium-table__cell {
+  box-sizing: border-box;
+  padding: var(--tritium-table-cell-py) var(--tritium-table-cell-px);
+  border-bottom: var(--border-default) solid var(--border);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  outline: none;
+}
+
+.tritium-table__body .tritium-table__row:last-child .tritium-table__cell {
+  border-bottom: none;
+}
+
+.tritium-table__cell--select {
+  width: var(--size-11);
+  padding-inline-end: 0;
+}
+
+.tritium-table--striped .tritium-table__row:nth-child(even) {
+  background: var(--tritium-table-row-stripe-bg);
+}
+
+.tritium-table__row[data-hovered]:not([data-disabled]),
+.tritium-table__row[data-pressed]:not([data-disabled]) {
+  background: var(--tritium-table-row-hover-bg);
+}
+
+.tritium-table__row[data-selected] {
+  background: var(--tritium-table-row-selected-bg);
+}
+
+.tritium-table__row[data-disabled] {
+  color: var(--muted-foreground);
+}
+
+.tritium-table__row[data-focus-visible] .tritium-table__cell:first-child,
+.tritium-table__cell[data-focus-visible] {
+  outline: var(--border-2) solid var(--ring);
+  outline-offset: calc(var(--border-2) * -1);
+}

@@ -60,6 +60,7 @@ We are not adding new Bezel tokens yet. When a component needs a value that has 
 | Shadow | `--shadow-md` (toasts) | `0 var(--size-1) var(--size-3) oklch(0 0 0 / 0.12)` | `toast.css` (`--tritium-toast-shadow`) |
 | Z-index | `--z-overlay` | `100` | `_shared/modal.css` (`--tritium-overlay-z`) |
 | Z-index | `--z-toast` | `100` | `toast.css` (`--tritium-toast-z`) |
+| Z-index | `--z-sticky` | `1` | `table.css` sticky header (`--tritium-table-sticky-z`) |
 | Motion / duration | `--duration-fast` | `0.15s` | `_shared/popover.css`, `tooltip.css` (`--tritium-overlay-duration`) |
 | Motion / duration | `--duration-quick` | `0.2s` | `_shared/modal.css` (dialog and sheet), `toast.css` |
 | Motion / easing | `--ease-in`, `--ease-out` | `ease-in`, `ease-out` | `_shared/popover.css`, `_shared/modal.css`, `tooltip.css`, `toast.css` |

@@ -40,6 +40,9 @@ export type { ComboboxItemProps, ComboboxProps } from './components/combobox/com
 export { ContextMenu } from './components/context-menu/context-menu';
 export type { ContextMenuProps } from './components/context-menu/context-menu';
 
+export { DataGrid } from './components/data-grid/data-grid';
+export type { DataGridColumnDef, DataGridInitialState, DataGridProps } from './components/data-grid/data-grid';
+
 export { Dialog, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from './components/dialog/dialog';
 export type { DialogProps, DialogSize } from './components/dialog/dialog';
 
@@ -123,6 +126,9 @@ export type { SpinnerProps } from './components/spinner/spinner';
 
 export { Switch } from './components/switch/switch';
 export type { SwitchProps, SwitchSize } from './components/switch/switch';
+
+export { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from './components/table/table';
+export type { TableColumnProps, TableProps, TableSize, TableVariant } from './components/table/table';
 
 export { Tab, TabList, TabPanel, Tabs } from './components/tabs/tabs';
 export type { TabListProps, TabPanelProps, TabProps, TabsProps, TabsVariant } from './components/tabs/tabs';

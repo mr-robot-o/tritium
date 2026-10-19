@@ -1,0 +1,37 @@
+.tritium-data-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-3);
+}
+
+.tritium-data-grid__toolbar,
+.tritium-data-grid__footer,
+.tritium-data-grid__pager {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--size-3);
+}
+
+.tritium-data-grid__toolbar {
+  justify-content: space-between;
+}
+
+.tritium-data-grid__search {
+  max-width: var(--size-64);
+}
+
+.tritium-data-grid__footer {
+  justify-content: space-between;
+  color: var(--muted-foreground);
+  font-family: var(--typography-lg-font-family);
+  font-size: var(--typography-lg-font-size);
+  line-height: var(--typography-lg-line-height);
+}
+
+.tritium-data-grid__page-size {
+  display: inline-flex;
+  white-space: nowrap;
+  align-items: center;
+  gap: var(--size-2);
+}
