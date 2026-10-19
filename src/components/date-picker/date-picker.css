@@ -1,0 +1,99 @@
+.tritium-date-picker {
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--size-1-5);
+  font-family: var(--typography-xl-font-family);
+}
+
+.tritium-date-picker__group {
+  width: auto;
+  min-width: var(--size-56);
+  padding-inline-end: var(--size-1);
+}
+
+.tritium-date-picker__input {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  min-width: 0;
+  white-space: nowrap;
+}
+
+.tritium-date-picker__segment {
+  padding: var(--size-0) var(--size-0-5);
+  border-radius: var(--radius-sm);
+  outline: none;
+  caret-color: transparent;
+  font-variant-numeric: tabular-nums;
+}
+
+.tritium-date-picker__segment[data-placeholder] {
+  color: var(--muted-foreground);
+}
+
+.tritium-date-picker__segment[data-type='literal'] {
+  padding: var(--size-0);
+}
+
+.tritium-date-picker__segment[data-focused] {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.tritium-date-picker__segment[data-disabled] {
+  opacity: 0.5;
+}
+
+.tritium-date-picker__separator {
+  padding-inline: var(--size-1);
+  color: var(--muted-foreground);
+}
+
+.tritium-date-picker__button {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-8);
+  height: var(--size-8);
+  padding: var(--size-0);
+  border: var(--border-0) solid transparent;
+  border-radius: var(--radius-sm);
+  outline: none;
+  background: transparent;
+  color: var(--muted-foreground);
+  cursor: pointer;
+}
+
+.tritium-date-picker__button > svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.tritium-date-picker__button[data-hovered] {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.tritium-date-picker__button[data-focus-visible] {
+  outline: var(--border-2) solid var(--ring);
+  outline-offset: var(--size-0-5);
+}
+
+.tritium-date-picker__button[data-disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* The generic panel caps its width at --size-96, which is narrower than a two-month calendar.
+   The extra class beats popover.css regardless of stylesheet order. */
+.tritium-popover.tritium-date-picker__popover {
+  min-width: 0;
+  max-width: none;
+}
+
+/* The calendar has its own padding, so the dialog adds none. */
+.tritium-date-picker__popover .tritium-popover__dialog {
+  padding: var(--size-0);
+  outline: none;
+}

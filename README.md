@@ -65,3 +65,9 @@ We are not adding new Bezel tokens yet. When a component needs a value that has 
 | Motion / duration | `--duration-quick` | `0.2s` | `_shared/modal.css` (dialog and sheet), `toast.css` |
 | Motion / easing | `--ease-in`, `--ease-out` | `ease-in`, `ease-out` | `_shared/popover.css`, `_shared/modal.css`, `tooltip.css`, `toast.css` |
 | Size | `--size-modal` (dialog width) | `calc(var(--size-96) + var(--size-16))` (448px) | `_shared/modal.css` (`--tritium-modal-width`) |
+| Size | `--size-calendar-cell` | `var(--size-9)` (36px) | `_shared/calendar.css` (`--tritium-calendar-cell-size`) |
+| Size | `--size-sidebar` / `--size-sidebar-icon` | `var(--size-64)` (256px) / `var(--size-14)` (56px) | `sidebar.css` (`--tritium-sidebar-width`, `--tritium-sidebar-width-icon`) |
+| Motion / duration | `--duration-quick` | `0.2s` | `sidebar.css` width transition (`--tritium-sidebar-duration`) |
+| Motion / duration | `--duration-fast` | `0.15s` | `navigation-menu.css` chevron rotation |
+| Spacing | `--gap-carousel` | `var(--size-4)` | `carousel.css` (`--tritium-carousel-gap`) |
+| Z-index | `--z-sticky` | `1` | `resizable.css` grip, `input-otp.css` active slot |

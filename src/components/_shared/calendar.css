@@ -1,0 +1,166 @@
+/* The month grid shared by Calendar, RangeCalendar and the DatePicker popovers. */
+.tritium-calendar {
+  --tritium-calendar-cell-size: var(--size-9);
+  --tritium-calendar-cell-fg: var(--foreground);
+  --tritium-calendar-cell-bg: transparent;
+
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--size-3);
+  padding: var(--size-3);
+  color: var(--foreground);
+  font-family: var(--typography-xl-font-family);
+  font-size: var(--typography-xl-font-size);
+  line-height: var(--typography-xl-line-height);
+  letter-spacing: var(--typography-xl-letter-spacing);
+}
+
+.tritium-calendar__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--size-2);
+}
+
+.tritium-calendar__heading {
+  flex: 1;
+  margin: 0;
+  font-size: var(--typography-xl-font-size);
+  font-weight: var(--font-weight-semi-bold);
+  text-align: center;
+}
+
+.tritium-calendar__nav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-8);
+  height: var(--size-8);
+  padding: var(--size-0);
+  border: var(--border-0) solid transparent;
+  border-radius: var(--radius-md);
+  outline: none;
+  background: transparent;
+  color: var(--foreground);
+  cursor: pointer;
+}
+
+.tritium-calendar__nav > svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.tritium-calendar__nav[data-hovered] {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.tritium-calendar__nav[data-focus-visible] {
+  outline: var(--border-2) solid var(--ring);
+  outline-offset: var(--size-0-5);
+}
+
+.tritium-calendar__nav[data-disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.tritium-calendar__months {
+  display: flex;
+  gap: var(--size-4);
+}
+
+.tritium-calendar__grid {
+  border-collapse: collapse;
+}
+
+.tritium-calendar__header-cell {
+  width: var(--tritium-calendar-cell-size);
+  padding-bottom: var(--size-1);
+  color: var(--muted-foreground);
+  font-size: var(--typography-xl-font-size);
+  font-weight: var(--typography-xl-font-weight);
+  text-align: center;
+}
+
+.tritium-calendar__cell {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tritium-calendar-cell-size);
+  height: var(--tritium-calendar-cell-size);
+  border-radius: var(--radius-md);
+  outline: none;
+  background: var(--tritium-calendar-cell-bg);
+  color: var(--tritium-calendar-cell-fg);
+  cursor: pointer;
+  forced-color-adjust: none;
+}
+
+.tritium-calendar__cell[data-hovered]:not([data-selected], [data-disabled], [data-unavailable]) {
+  --tritium-calendar-cell-bg: var(--accent);
+  --tritium-calendar-cell-fg: var(--accent-foreground);
+}
+
+.tritium-calendar__cell[data-outside-month] {
+  display: none;
+}
+
+.tritium-calendar__cell[data-outside-visible-range] {
+  --tritium-calendar-cell-fg: var(--muted-foreground);
+}
+
+/* Today is marked with the muted fill; selection overrides it below. */
+.tritium-calendar__cell[data-today] {
+  --tritium-calendar-cell-bg: var(--muted);
+}
+
+.tritium-calendar__cell[data-selected] {
+  --tritium-calendar-cell-bg: var(--primary);
+  --tritium-calendar-cell-fg: var(--primary-foreground);
+}
+
+.tritium-calendar__cell[data-focus-visible] {
+  outline: var(--border-2) solid var(--ring);
+  outline-offset: var(--size-0-5);
+}
+
+.tritium-calendar__cell[data-disabled] {
+  --tritium-calendar-cell-fg: var(--muted-foreground);
+
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.tritium-calendar__cell[data-unavailable] {
+  --tritium-calendar-cell-fg: var(--destructive);
+
+  text-decoration: line-through;
+  cursor: not-allowed;
+}
+
+/* Range selection: the span is a muted band with rounded ends. */
+.tritium-calendar__cell[data-selection-start],
+.tritium-calendar__cell[data-selection-end] {
+  --tritium-calendar-cell-bg: var(--primary);
+  --tritium-calendar-cell-fg: var(--primary-foreground);
+}
+
+.tritium-calendar__cell[data-selected]:not([data-selection-start], [data-selection-end]) {
+  --tritium-calendar-cell-bg: var(--accent);
+  --tritium-calendar-cell-fg: var(--accent-foreground);
+
+  border-radius: var(--radius-sm);
+}
+
+.tritium-calendar__cell[data-selection-start]:not([data-selection-end]) {
+  border-start-end-radius: var(--radius-sm);
+  border-end-end-radius: var(--radius-sm);
+}
+
+.tritium-calendar__cell[data-selection-end]:not([data-selection-start]) {
+  border-start-start-radius: var(--radius-sm);
+  border-end-start-radius: var(--radius-sm);
+}

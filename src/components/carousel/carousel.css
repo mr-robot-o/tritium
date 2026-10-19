@@ -1,0 +1,78 @@
+.tritium-carousel {
+  --tritium-carousel-gap: var(--size-4);
+
+  position: relative;
+  font-family: var(--typography-xl-font-family);
+  color: var(--foreground);
+}
+
+.tritium-carousel:focus-visible {
+  outline: var(--border-2) solid var(--ring);
+  outline-offset: var(--size-1);
+  border-radius: var(--radius-md);
+}
+
+.tritium-carousel__viewport {
+  overflow: hidden;
+}
+
+.tritium-carousel__content {
+  display: flex;
+  margin-inline-start: calc(-1 * var(--tritium-carousel-gap));
+}
+
+/* Embla takes the view size from this element, so a vertical carousel needs a fixed height here;
+   without one it grows to fit every slide and there is nothing to scroll. Set
+   --tritium-carousel-vertical-height to the height of the slides you want visible; the gap is
+   added because the container is pulled up by one gap (see margin-block-start below). */
+.tritium-carousel__content[data-orientation='vertical'] {
+  flex-direction: column;
+  height: calc(var(--tritium-carousel-vertical-height, var(--size-64)) + var(--tritium-carousel-gap));
+  margin-inline-start: 0;
+  margin-block-start: calc(-1 * var(--tritium-carousel-gap));
+}
+
+.tritium-carousel__item {
+  box-sizing: border-box;
+  min-width: 0;
+  flex: 0 0 100%;
+  padding-inline-start: var(--tritium-carousel-gap);
+}
+
+.tritium-carousel__item[data-orientation='vertical'] {
+  padding-inline-start: 0;
+  padding-block-start: var(--tritium-carousel-gap);
+}
+
+/* The arrows sit over the edges of the carousel, centered on the cross axis. */
+.tritium-carousel__nav {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.tritium-carousel[data-orientation='horizontal'] .tritium-carousel__nav {
+  top: 50%;
+  translate: 0 -50%;
+}
+
+.tritium-carousel[data-orientation='horizontal'] .tritium-carousel__nav--previous {
+  inset-inline-start: calc(-1 * var(--size-12));
+}
+
+.tritium-carousel[data-orientation='horizontal'] .tritium-carousel__nav--next {
+  inset-inline-end: calc(-1 * var(--size-12));
+}
+
+.tritium-carousel[data-orientation='vertical'] .tritium-carousel__nav {
+  inset-inline-start: 50%;
+  translate: -50% 0;
+  rotate: 0deg;
+}
+
+.tritium-carousel[data-orientation='vertical'] .tritium-carousel__nav--previous {
+  top: calc(-1 * var(--size-12));
+}
+
+.tritium-carousel[data-orientation='vertical'] .tritium-carousel__nav--next {
+  bottom: calc(-1 * var(--size-12));
+}

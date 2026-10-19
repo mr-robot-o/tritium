@@ -1,0 +1,300 @@
+.tritium-sidebar-wrapper {
+  --tritium-sidebar-width: var(--size-64);
+  --tritium-sidebar-width-icon: var(--size-14);
+  --tritium-sidebar-duration: 0.2s;
+
+  display: flex;
+  width: 100%;
+  min-height: 100%;
+  font-family: var(--typography-xl-font-family);
+}
+
+.tritium-sidebar-inset {
+  flex: 1;
+  min-width: 0;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* ---------- The panel ---------- */
+
+.tritium-sidebar {
+  flex: none;
+  box-sizing: border-box;
+  width: var(--tritium-sidebar-width);
+  overflow: hidden;
+  background: var(--sidebar);
+  color: var(--sidebar-foreground);
+  transition: width var(--tritium-sidebar-duration) ease;
+}
+
+.tritium-sidebar[data-side='left'] {
+  border-inline-end: var(--border-default) solid var(--sidebar-border);
+}
+
+.tritium-sidebar[data-side='right'] {
+  order: 1;
+  border-inline-start: var(--border-default) solid var(--sidebar-border);
+}
+
+/* The inner box keeps its width while the outer one animates, so content doesn't reflow. */
+.tritium-sidebar__inner {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: var(--tritium-sidebar-width);
+  height: 100%;
+}
+
+.tritium-sidebar[data-collapsible='offcanvas'][data-state='collapsed'] {
+  width: 0;
+  border-width: 0;
+}
+
+.tritium-sidebar[data-collapsible='icon'][data-state='collapsed'] {
+  width: var(--tritium-sidebar-width-icon);
+}
+
+.tritium-sidebar[data-collapsible='icon'][data-state='collapsed'] .tritium-sidebar__inner {
+  width: var(--tritium-sidebar-width-icon);
+}
+
+/* In the mobile sheet the panel fills the sheet. */
+.tritium-sidebar--sheet {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.tritium-sidebar--sheet .tritium-sidebar__inner {
+  width: 100%;
+}
+
+.tritium-dialog.tritium-sidebar__sheet {
+  padding: var(--size-0);
+  background: var(--sidebar);
+  color: var(--sidebar-foreground);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tritium-sidebar {
+    transition: none;
+  }
+}
+
+/* ---------- Sections ---------- */
+
+.tritium-sidebar__header,
+.tritium-sidebar__footer {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  gap: var(--size-2);
+  padding: var(--size-2);
+}
+
+.tritium-sidebar__content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--size-2);
+  min-height: 0;
+  overflow: auto;
+}
+
+.tritium-sidebar[data-collapsible='icon'][data-state='collapsed'] .tritium-sidebar__content {
+  overflow: hidden;
+}
+
+.tritium-sidebar__separator {
+  height: var(--border-default);
+  margin-inline: var(--size-2);
+  background: var(--sidebar-border);
+}
+
+.tritium-sidebar__group {
+  display: flex;
+  flex-direction: column;
+  padding: var(--size-2);
+}
+
+.tritium-sidebar__group-label {
+  display: flex;
+  align-items: center;
+  height: var(--size-8);
+  padding-inline: var(--size-2);
+  color: var(--sidebar-foreground);
+  font-size: var(--typography-lg-font-size);
+  font-weight: var(--font-weight-semi-bold);
+  line-height: var(--typography-lg-line-height);
+  letter-spacing: var(--typography-lg-letter-spacing);
+  opacity: 0.7;
+  white-space: nowrap;
+  transition: opacity var(--tritium-sidebar-duration) ease;
+}
+
+.tritium-sidebar[data-collapsible='icon'][data-state='collapsed'] .tritium-sidebar__group-label {
+  opacity: 0;
+}
+
+/* ---------- Menus ---------- */
+
+.tritium-sidebar__menu,
+.tritium-sidebar__menu-sub {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-0-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tritium-sidebar__menu-item {
+  position: relative;
+}
+
+.tritium-sidebar__menu-button {
+  --tritium-sidebar-button-bg: transparent;
+  --tritium-sidebar-button-fg: var(--sidebar-foreground);
+
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: var(--size-2);
+  width: 100%;
+  height: var(--size-8);
+  padding: var(--size-0) var(--size-2);
+  border: 0;
+  border-radius: var(--radius-md);
+  outline: none;
+  background: var(--tritium-sidebar-button-bg);
+  color: var(--tritium-sidebar-button-fg);
+  font: inherit;
+  letter-spacing: inherit;
+  text-align: start;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.tritium-sidebar__menu-button--size-sm {
+  height: var(--size-7);
+  font-size: var(--typography-lg-font-size);
+}
+
+.tritium-sidebar__menu-button--size-lg {
+  height: var(--size-12);
+}
+
+.tritium-sidebar__menu-icon {
+  display: inline-flex;
+  flex: none;
+}
+
+.tritium-sidebar__menu-icon > svg {
+  width: 1.25em;
+  height: 1.25em;
+}
+
+.tritium-sidebar__menu-label {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tritium-sidebar__menu-button[data-hovered]:not([data-disabled]),
+.tritium-sidebar__menu-button[data-pressed]:not([data-disabled]) {
+  --tritium-sidebar-button-bg: var(--sidebar-accent);
+  --tritium-sidebar-button-fg: var(--sidebar-accent-foreground);
+}
+
+.tritium-sidebar__menu-button[data-active] {
+  --tritium-sidebar-button-bg: var(--sidebar-accent);
+  --tritium-sidebar-button-fg: var(--sidebar-accent-foreground);
+
+  font-weight: var(--font-weight-semi-bold);
+}
+
+.tritium-sidebar__menu-button[data-focus-visible] {
+  outline: var(--border-2) solid var(--sidebar-ring);
+  outline-offset: calc(-1 * var(--border-2));
+}
+
+.tritium-sidebar__menu-button[data-disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.tritium-sidebar__menu-badge {
+  position: absolute;
+  inset-inline-end: var(--size-1);
+  top: 50%;
+  translate: 0 -50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--size-5);
+  height: var(--size-5);
+  padding-inline: var(--size-1);
+  border-radius: var(--radius-sm);
+  color: var(--sidebar-foreground);
+  font-size: var(--typography-lg-font-size);
+  font-variant-numeric: tabular-nums;
+  pointer-events: none;
+}
+
+/* Icon rail: only the icon remains, centered. */
+.tritium-sidebar[data-collapsible='icon'][data-state='collapsed'] .tritium-sidebar__menu-button {
+  justify-content: center;
+  padding-inline: var(--size-0);
+}
+
+.tritium-sidebar[data-collapsible='icon'][data-state='collapsed'] .tritium-sidebar__menu-label,
+.tritium-sidebar[data-collapsible='icon'][data-state='collapsed'] .tritium-sidebar__menu-badge,
+.tritium-sidebar[data-collapsible='icon'][data-state='collapsed'] .tritium-sidebar__menu-sub {
+  display: none;
+}
+
+.tritium-sidebar[data-collapsible='icon'][data-state='collapsed'] .tritium-sidebar__menu-button .tritium-sidebar__menu-icon {
+  flex: none;
+}
+
+/* ---------- Nested menu ---------- */
+
+.tritium-sidebar__menu-sub {
+  margin-inline-start: var(--size-4);
+  padding-inline-start: var(--size-2-5);
+  border-inline-start: var(--border-default) solid var(--sidebar-border);
+}
+
+.tritium-sidebar__menu-sub-button {
+  --tritium-sidebar-button-bg: transparent;
+  --tritium-sidebar-button-fg: var(--sidebar-foreground);
+
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  height: var(--size-7);
+  padding: var(--size-0) var(--size-2);
+  border-radius: var(--radius-md);
+  outline: none;
+  background: var(--tritium-sidebar-button-bg);
+  color: var(--tritium-sidebar-button-fg);
+  font-size: var(--typography-lg-font-size);
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.tritium-sidebar__menu-sub-button[data-hovered],
+.tritium-sidebar__menu-sub-button[data-active] {
+  --tritium-sidebar-button-bg: var(--sidebar-accent);
+  --tritium-sidebar-button-fg: var(--sidebar-accent-foreground);
+}
+
+.tritium-sidebar__menu-sub-button[data-focus-visible] {
+  outline: var(--border-2) solid var(--sidebar-ring);
+  outline-offset: calc(-1 * var(--border-2));
+}

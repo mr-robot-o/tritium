@@ -1,0 +1,74 @@
+.tritium-resizable {
+  font-family: var(--typography-xl-font-family);
+}
+
+.tritium-resizable__handle {
+  --tritium-resizable-handle-bg: var(--border);
+
+  position: relative;
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  background: var(--tritium-resizable-handle-bg);
+  outline: none;
+}
+
+/* A wider invisible hit area so the 1px line is easy to grab. */
+.tritium-resizable__handle::after {
+  content: '';
+  position: absolute;
+  inset-block: 0;
+  inset-inline: calc(-1 * var(--size-1));
+}
+
+.tritium-resizable__handle[aria-orientation='vertical'] {
+  width: var(--border-default);
+}
+
+.tritium-resizable__handle[aria-orientation='horizontal'] {
+  height: var(--border-default);
+}
+
+.tritium-resizable__handle[aria-orientation='horizontal']::after {
+  inset-block: calc(-1 * var(--size-1));
+  inset-inline: 0;
+}
+
+.tritium-resizable__handle[data-separator='hover'],
+.tritium-resizable__handle[data-separator='active'] {
+  --tritium-resizable-handle-bg: var(--ring);
+}
+
+.tritium-resizable__handle[data-separator='focus'] {
+  --tritium-resizable-handle-bg: var(--ring);
+
+  outline: var(--border-2) solid var(--ring);
+  outline-offset: var(--border-default);
+}
+
+.tritium-resizable__handle[data-disabled] {
+  pointer-events: none;
+}
+
+.tritium-resizable__grip {
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-3-5);
+  height: var(--size-4);
+  border: var(--border-default) solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--background);
+  color: var(--muted-foreground);
+}
+
+.tritium-resizable__grip > svg {
+  width: var(--size-3);
+  height: var(--size-3);
+}
+
+.tritium-resizable__handle[aria-orientation='horizontal'] .tritium-resizable__grip > svg {
+  rotate: 90deg;
+}

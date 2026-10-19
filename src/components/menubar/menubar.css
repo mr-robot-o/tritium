@@ -1,0 +1,47 @@
+.tritium-menubar {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--size-1);
+  padding: var(--size-1);
+  border: var(--border-default) solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--typography-xl-font-family);
+  font-size: var(--typography-xl-font-size);
+  line-height: var(--typography-xl-line-height);
+  letter-spacing: var(--typography-xl-letter-spacing);
+}
+
+.tritium-menubar__trigger {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--size-8);
+  padding: var(--size-0) var(--size-3);
+  border: 0;
+  border-radius: var(--radius-sm);
+  outline: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-weight: var(--font-weight-semi-bold);
+  letter-spacing: inherit;
+  cursor: default;
+}
+
+.tritium-menubar__trigger[data-hovered],
+.tritium-menubar__trigger[data-pressed],
+.tritium-menubar__trigger[aria-expanded='true'] {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.tritium-menubar__trigger[data-focus-visible] {
+  outline: var(--border-2) solid var(--ring);
+  outline-offset: calc(-1 * var(--border-2));
+}
+
+.tritium-menubar__trigger[data-disabled] {
+  opacity: 0.5;
+}

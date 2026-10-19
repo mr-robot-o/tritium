@@ -1,0 +1,90 @@
+.tritium-input-otp {
+  display: flex;
+  align-items: center;
+  gap: var(--size-2);
+  font-family: var(--typography-xl-font-family);
+}
+
+.tritium-input-otp:has(:disabled) {
+  opacity: 0.5;
+}
+
+.tritium-input-otp__input:disabled {
+  cursor: not-allowed;
+}
+
+.tritium-input-otp__group {
+  display: flex;
+  align-items: center;
+}
+
+.tritium-input-otp__slot {
+  --tritium-input-otp-border: var(--input);
+
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-10);
+  height: var(--size-10);
+  border-block: var(--border-default) solid var(--tritium-input-otp-border);
+  border-inline-end: var(--border-default) solid var(--tritium-input-otp-border);
+  background: var(--background);
+  color: var(--foreground);
+  font-size: var(--typography-xl-font-size);
+  line-height: var(--typography-xl-line-height);
+  font-variant-numeric: tabular-nums;
+}
+
+.tritium-input-otp__slot:first-child {
+  border-inline-start: var(--border-default) solid var(--tritium-input-otp-border);
+  border-start-start-radius: var(--radius-md);
+  border-end-start-radius: var(--radius-md);
+}
+
+.tritium-input-otp__slot:last-child {
+  border-start-end-radius: var(--radius-md);
+  border-end-end-radius: var(--radius-md);
+}
+
+/* The active slot is outlined above its neighbors' borders. */
+.tritium-input-otp__slot[data-active] {
+  z-index: 1;
+  outline: var(--border-2) solid var(--ring);
+  outline-offset: calc(-1 * var(--border-default));
+  border-radius: var(--radius-md);
+}
+
+.tritium-input-otp:has([data-invalid]) .tritium-input-otp__slot {
+  --tritium-input-otp-border: var(--destructive);
+}
+
+.tritium-input-otp__caret {
+  width: var(--border-default);
+  height: 1.25em;
+  background: var(--foreground);
+  animation: tritium-input-otp-blink 1s step-end infinite;
+}
+
+@keyframes tritium-input-otp-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tritium-input-otp__caret {
+    animation: none;
+  }
+}
+
+.tritium-input-otp__separator {
+  display: flex;
+  color: var(--muted-foreground);
+}
+
+.tritium-input-otp__separator > svg {
+  width: 1rem;
+  height: 1rem;
+}
